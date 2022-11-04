@@ -1,0 +1,372 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Lookbook Masonry",
+  "class": "index-section",
+  "id": "index-section-lookbookmasonry",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_title",
+      "label": "Show Title Block",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "OUR COLLECTIONS",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Small description",
+      "default": "SUMMER 2018",
+      "info": "If you want delete text from the screen clear field"
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text3",
+      "label": "Big description",
+      "info": "If you want delete text from the screen clear field. Field not work with slider mode"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Product 1",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_positiontop_1",
+      "label": "Position top",
+      "default": "9",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "block_positionleft_1",
+      "label": "Position left",
+      "default": "63",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "product",
+      "id": "block_product_1",
+      "label": "Select product",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_positiontop_2",
+      "label": "Position top",
+      "default": "26",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "block_positionleft_2",
+      "label": "Position left",
+      "default": "50",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "product",
+      "id": "block_product_2",
+      "label": "Select product",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_positiontop_3",
+      "label": "Position top",
+      "default": "61",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "block_positionleft_3",
+      "label": "Position left",
+      "default": "48",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "product",
+      "id": "block_product_3",
+      "label": "Select product",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_positiontop_4",
+      "label": "Position top",
+      "default": "0",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "block_positionleft_4",
+      "label": "Position left",
+      "default": "0",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "product",
+      "id": "block_product_4",
+      "label": "Select product",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_positiontop_5",
+      "label": "Position top",
+      "default": "20",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "block_positionleft_5",
+      "label": "Position left",
+      "default": "0",
+      "info": "In percent",
+      "repeatable": "Image"
+    },
+    {
+      "type": "product",
+      "id": "block_product_5",
+      "label": "Select product",
+      "repeatable": "Image",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_show_title' -%}
+{%- assign atb_show_title = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_text3' -%}
+{%- assign atb_text3 = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_positiontop_1' -%}
+{%- assign block_positiontop_1 = val -%}
+{%- include 'atb-render' field:'block_positionleft_1' -%}
+{%- assign block_positionleft_1 = val -%}
+{%- include 'atb-render' field:'block_product_1' -%}
+{%- assign block_product_1 = val -%}
+{%- include 'atb-render' field:'block_positiontop_2' -%}
+{%- assign block_positiontop_2 = val -%}
+{%- include 'atb-render' field:'block_positionleft_2' -%}
+{%- assign block_positionleft_2 = val -%}
+{%- include 'atb-render' field:'block_product_2' -%}
+{%- assign block_product_2 = val -%}
+{%- include 'atb-render' field:'block_positiontop_3' -%}
+{%- assign block_positiontop_3 = val -%}
+{%- include 'atb-render' field:'block_positionleft_3' -%}
+{%- assign block_positionleft_3 = val -%}
+{%- include 'atb-render' field:'block_product_3' -%}
+{%- assign block_product_3 = val -%}
+{%- include 'atb-render' field:'block_positiontop_4' -%}
+{%- assign block_positiontop_4 = val -%}
+{%- include 'atb-render' field:'block_positionleft_4' -%}
+{%- assign block_positionleft_4 = val -%}
+{%- include 'atb-render' field:'block_product_4' -%}
+{%- assign block_product_4 = val -%}
+{%- include 'atb-render' field:'block_positiontop_5' -%}
+{%- assign block_positiontop_5 = val -%}
+{%- include 'atb-render' field:'block_positionleft_5' -%}
+{%- assign block_positionleft_5 = val -%}
+{%- include 'atb-render' field:'block_product_5' -%}
+{%- assign block_product_5 = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_show_title == blank -%}
+{%- assign atb_show_title = false -%}
+{%- else -%}
+{%- assign atb_show_title = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+
+{%- assign grid = 3 -%}
+{%- capture info_image_size -%}
+{%- case grid -%}
+{%- when '2' -%}{% if item.fullwidth %}1200x750px{% else %}800x500px{% endif %}
+{%- when '3' -%}{% if item.fullwidth %}800x750px{% else %}400x500px{% endif %}
+{%- else -%}{% if item.fullwidth %}650x750px{% else %}300x500px{% endif %}
+{%- endcase -%}
+{%- endcapture -%}
+
+{%- assign img_size = info_image_size | split: 'x' | first | append: 'x' -%}
+
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent">
+  <div class="container{% if item.fullwidth %}-fluid{% endif %}" data-sectionname="index_sectionlookbookmasonry">
+    {% if item.show_title %}<div class="tt-block-title">
+      <h2 class="tt-title">{{ item.text1 }}</h2>
+      {% unless item.text2 == '' %}<div class="tt-description">{{ item.text2 }}</div>{% endunless %}
+      {% unless item.default_carousel %}{% unless item.text3 == '' %}<p>{{ item.text3 }}</p>{% endunless %}{% endunless %}
+    </div>{% endif %}
+    {%- if blocks.size > 0 -%}
+    <div class="tt-lookbook-masonry">
+      <div class="tt-lookbook-init tt-grid-col-3 tt-add-item">
+        {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+        <div class="element-item">
+          <div class="tt-lookbook">
+            {%- if b_i.image == blank -%}{% include "get_svg" type:'image' size:info_image_size %}
+            {%- else -%}<img src="{{ b_i.image | img_url: img_size }}" alt="{{ b_i.image.alt }}">
+            {%- endif -%}
+
+            {%- for i in (1..5) -%}
+            {%- assign topi = 'positiontop_' | append: i -%}{%- assign topi = b_i[topi] -%}
+            {%- assign topl = 'positionleft_' | append: i -%}{%- assign topl = b_i[topl] -%}
+            {%- assign pri = 'product_' | append: i -%}{%- assign pri = b_i[pri] -%}
+            {%- unless pri == blank -%}
+            {%- assign pri = all_products[pri] -%}
+            {%- assign sale_on = false -%}
+            {%- if pri.selected_or_first_available_variant.compare_at_price > pri.selected_or_first_available_variant.price -%}
+            {%- assign sale_on = true -%}
+            {%- endif -%}
+            <div class="tt-hotspot" style="top: {{ topi }}%; left: {{ topl }}%;" data-top="{{ topi }}" data-left="{{ topl }}">
+              <div class="tt-btn"></div>
+              <div class="tt-content-parent">
+                <div class="tt-hotspot-content">
+                  <a href="#" class="tt-btn-close"></a>
+                  <div class="tt-img">
+                    <a href="{{ pri.url }}">
+                      <img src="{{ pri.featured_image.src | product_img_url: '150x' }}" alt="{{ pri.featured_image.alt }}">
+                    </a>
+                  </div>
+                  <div class="tt-description">
+                    <h2 class="tt-title">
+                      <a href="{{ pri.url }}">{{ pri.title }}</a>
+                    </h2>
+                    {%- if sale_on and pri.variants.size == 1 -%}
+                    <div class="tt-price"><span class="new-price">{{ pri.selected_or_first_available_variant.price | money }}</span><span class="old-price">{{ pri.selected_or_first_available_variant.compare_at_price | money }}</span></div>
+                    {%- else -%}
+                    <div class="tt-price"><span>{% if pri.price_min != pri.price_max %}{{ pri.price_min | money_without_trailing_zeros }} - {{ pri.price_max | money_without_trailing_zeros }}{% else %}{{ pri.selected_or_first_available_variant.price | money }}{% endif %}</span><span class="old-price hide"></span></div>
+                    {%- endif -%}
+                    {%- if pri.available -%}
+                    {%- if pri.variants.size == 1 and settings.product_item_show_cart -%}
+                    <form action="/cart/add" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="{{ pri.selected_or_first_available_variant.id }}">
+                      <button class="btn{% if settings.ajax_addtocart %} addtocart-item-js{% endif %} ttbtnmainstyle" title='{{ 'products.general.add_to_cart' | t | capitalize }}'>{{ 'products.general.add_to_cart' | t }}</button>
+                    </form>
+                    {%- elsif settings.product_item_show_quickview -%}
+                    <a href="#" data-toggle="modal" data-target="#ModalquickView" class="btn ttbtnmainstyle" title="{{ 'products.general.view_all_variants' | t | capitalize }}" data-value="{{ pri.url }}" data-quantity="{% for variant in pri.variants %}{% if variant.inventory_policy == "continue" %}{{ variant.id }}-continue;{% else %}{{ variant.id }}-{{ variant.inventory_quantity }};{% endif %}{% endfor %}"{% if settings.first_variant_column_is_image and settings.use_in_the_small_products %} data-optionimages='{% include 'atb-get_product_images_from_first_column'  %}'{% endif  %}>{{ 'products.general.view_all_variants' | t }}</a>
+                    {%- else -%}
+                    <a href="{{ pri.url }}" class="btn ttbtnmainstyle" title="Go to product">{{ 'products.general.view_all_variants' | t }}</a>
+                    {%- endif -%}
+                    {%- else -%}
+                    <a href="{{ pri.url }}" class="btn disable">{{ 'products.general.unavailable_html' | t }}</a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%- endunless -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- else -%}
+    <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+    {%- endif -%}
+  </div>
+</div>
+
+</section>

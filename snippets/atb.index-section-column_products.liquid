@@ -1,0 +1,255 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Columns Products",
+  "class": "index-section",
+  "id": "index-section-column_products",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_items",
+      "label": "Products In Row",
+      "options": [
+        {
+          "value": "6",
+          "label": "2"
+        },
+        {
+          "value": "4",
+          "label": "3"
+        }
+      ],
+      "default": "4",
+      "info": "For screen size > 1024"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Column"
+    },
+    {
+      "label": "Collection",
+      "id": "block_collection",
+      "type": "collection",
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_limit",
+      "label": "Items Length. Integer",
+      "default": "3",
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "block_text1",
+      "label": "Title",
+      "default": "NEW PRODUCTS",
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Show button",
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_button",
+      "label": "Show button",
+      "default": false,
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_text2",
+      "label": "Button name",
+      "default": "See All Products",
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_rating",
+      "label": "Show Rating",
+      "default": true,
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_type",
+      "label": "Show type",
+      "default": true,
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_vendor",
+      "label": "Show vendor",
+      "default": false,
+      "repeatable": "Column",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_options",
+      "label": "Show options",
+      "default": false,
+      "repeatable": "Column",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_items' -%}
+{%- assign atb_items = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_collection' -%}
+{%- assign block_collection = val -%}
+{%- include 'atb-render' field:'block_limit' -%}
+{%- assign block_limit = val -%}
+{%- include 'atb-render' field:'block_text1' -%}
+{%- assign block_text1 = val -%}
+{%- include 'atb-render' field:'block_show_button' -%}
+{%- assign block_show_button = val -%}
+{%- include 'atb-render' field:'block_text2' -%}
+{%- assign block_text2 = val -%}
+{%- include 'atb-render' field:'block_show_rating' -%}
+{%- assign block_show_rating = val -%}
+{%- include 'atb-render' field:'block_show_type' -%}
+{%- assign block_show_type = val -%}
+{%- include 'atb-render' field:'block_show_vendor' -%}
+{%- assign block_show_vendor = val -%}
+{%- include 'atb-render' field:'block_show_options' -%}
+{%- assign block_show_options = val -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+<div class="container-indent">
+  <div class="container">
+    <div class="row">
+      {%- if blocks.size > 0 -%}
+      
+      {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- if block_show_options[forloop.index0] == blank -%}
+{%- assign my_checkbox4 = false -%}
+{%- else -%}
+{%- assign my_checkbox4 = true -%}
+{%- endif -%}
+{%- if block_show_vendor[forloop.index0] == blank -%}
+{%- assign my_checkbox3 = false -%}
+{%- else -%}
+{%- assign my_checkbox3 = true -%}
+{%- endif -%}
+{%- if block_show_type[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_show_rating[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_show_button[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+      {%- assign name_collection = b_i.collection -%}
+      {%- if name_collection == blank -%}{%- assign name_collection = "all" -%}{%- endif -%}
+      {%- assign collection = collections[name_collection] -%}
+      
+      {%- cycle = "", '<div class="divider visible-xs"></div>', '<div class="divider visible-sm visible-xs"></div>' -%}
+      <div class="col-sm-6 col-md-{{ atb_items }}">
+        <h6 class="tt-title-sub">{{ b_i.text1 }}</h6>
+        <div class="tt-layout-vertical-listing">
+          
+          {%- for product in collection.products limit: b_i.limit -%}
+          {%- assign sale_on = false -%}
+          {%- assign shownewicon = false -%}
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+          {%- assign sale_on = true -%}
+          {%- endif -%}
+          {%- assign url_images_size = '150x' -%}
+          {% comment %}{%- assign pr_variant = product.selected_or_first_available_variant -%}{% endcomment %}
+          {%- assign pr_variant = false -%}
+          <div class="respimgsize tt-item options-js">
+            <div class="tt-layout-vertical">
+              <a href="{{ product.url | within: collection }}" class="tt-img" title="View {{ product.title }}">
+                <img class="lazyload"
+                     data-mainimage="{{ product.featured_image | product_img_url: '100x100' | replace: '100x100', 'respimgsize' }}"
+                     alt="{{ product.featured_image.alt | escape }}"/>
+              </a>
+              <div class="tt-description">
+                {%- if b_i.show_rating -%}
+                <div class="tt-rating" data-url="{{ product.url | within: collection }}" title="{{ 'products.general.view_review' | t }}">
+                  <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                </div>
+                {%- endif -%}
+                {%- if b_i.show_type or b_i.show_vendor -%}
+                <ul class="tt-add-info">
+                  {% if b_i.show_type %}<li><a href="/collections/{{ collection.handle }}/{{ product.vendor }}" class="text-uppercase">{{ product.vendor }}</a></li>{% endif %}
+                  {% if b_i.show_vendor %}<li><a href="/collections/{{ collection.handle }}/{{ product.type }}" class="text-uppercase">{{ product.type }}</a></li>{% endif %}
+                </ul>
+                {%- endif -%}
+                <h6 class="tt-title"><a href="{{ product.url | within: collection }}" title="View {{ product.title }}">{{ product.title }}</a></h6>
+                {%- if sale_on and product.variants.size == 1 -%}
+                <div class="tt-price"><span class="new-price">{{ product.selected_or_first_available_variant.price | money }}</span><span class="old-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span></div>
+                {%- else -%}
+                <div class="tt-price"><span>{% if product.price_min != product.price_max %}{{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money_without_trailing_zeros }}{% else %}{{ product.selected_or_first_available_variant.price | money }}{% endif %}</span><span class="old-price hide"></span></div>
+                {%- endif -%}
+
+                {%- if b_i.show_options -%}
+				{%- if product.available -%}{% include 'atb-product-grid-options'  %}{%- endif - %}
+				{%- endif -%}
+                
+              </div>
+            </div>
+          </div>
+          {%- endfor -%}
+          
+        </div>
+        {% if b_i.show_button %}<a class="btn-link-02 tt-offset-16" href="collections/{{ collection.handle }}">{{ b_i.text2 }}</a>{% endif %}
+      </div>
+      {%- endfor -%}
+      
+      {%- else -%}
+      <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+
+
+</section>

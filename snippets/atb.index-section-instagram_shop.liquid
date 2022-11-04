@@ -1,0 +1,199 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Instagram Shop",
+  "id": "index-section-instagram_shop",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_topoffset",
+      "label": "Top Offset",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_instjs",
+      "label": "Instagram js",
+      "info": "[Snapppt](http://www.getsnapppt.com/)"
+    },
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block Type",
+      "info": "",
+      "default": "",
+      "options": [
+        {
+          "value": "item",
+          "label": "item"
+        },
+        {
+          "value": "simpletitle",
+          "label": "simpletitle"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "block"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Custom Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text1",
+      "label": "Big Text",
+      "default": "HOME<br>INSTAGRAM SHOP",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "block_text2",
+      "label": "Big Text",
+      "default": "Instagram Shop",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "block_text1color",
+      "label": "Text 1 Color",
+      "default": "#333333",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item"
+    },
+    {
+      "type": "color",
+      "id": "block_text2color",
+      "label": "Text 2 Color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item"
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_topoffset' -%}
+{%- assign atb_topoffset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_instjs' -%}
+{%- assign atb_instjs = val -%}
+{%- include 'atb-render' field:'block_type' -%}
+{%- assign block_type = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_text1' -%}
+{%- assign block_text1 = val -%}
+{%- include 'atb-render' field:'block_text2' -%}
+{%- assign block_text2 = val -%}
+{%- include 'atb-render' field:'block_text1color' -%}
+{%- assign block_text1color = val -%}
+{%- include 'atb-render' field:'block_text2color' -%}
+{%- assign block_text2color = val -%}
+{%- if atb_topoffset == blank -%}
+{%- assign atb_topoffset = false -%}
+{%- else -%}
+{%- assign atb_topoffset = true -%}
+{%- endif -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+<div class="container-indent{% unless atb_topoffset %} nomargin{% endunless %}">
+  <div class="container{% if atb_fullwidth %}-fluid{% endif %}">
+    {%- if blocks.size > 0 -%}
+    {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+    {%- if block_type[forloop.index0] == 'simpletitle' -%}
+    <div class="tt-block-title">
+      <h2 class="tt-title">{{ b_i.text1 }}</h2>
+      {% if b_i.text2 != '' %}<div class="tt-description">{{ b_i.text2 }}</div>{% endif %}
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+    <div class="row">
+      {%- if blocks.size > 0 -%}
+      {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+      {%- if block_type[forloop.index0] == 'item' -%}
+      <div class="tt-promo-fullwidth-02">
+        {%- if b_i.image == blank -%}{% include "get_svg" type:'image' size:'2048x455' %}
+        {%- else -%}<img src="{{ b_i.image | img_url: '2048x' }}" alt="{{ b_i.image.alt }}">
+        {%- endif -%}
+        <div class="tt-description">
+          <div class="tt-description-wrapper">
+            <div class="tt-title-large" style="color: {{ b_i.text1color }}">{{ b_i.text1 }}</div>
+            {% unless b_i.text2 == '' %}<p style="color: {{ b_i.text2color }}">{{ b_i.text2 }}</p>{% endunless %}
+          </div>
+        </div>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+      {%- endif -%}
+      {{ atb_instjs }}
+    </div>
+  </div>
+</div>
+
+{{ 'instagram_shop.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+.snptwdgt-container{
+margin-top: 20px;
+}
+.snptwdgt-container .snptwdgt__ftr{
+display: none;
+}
+</style></section>

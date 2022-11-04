@@ -1,0 +1,176 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Products Masonry",
+  "class": "index-section",
+  "id": "index-section-masonry_products",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_title",
+      "label": "Show Title Block",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "TRENDING",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Small description",
+      "default": "TOP VIEW IN THIS WEEK",
+      "info": "If you want delete text from the screen clear field"
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text3",
+      "label": "Big description",
+      "info": "If you want delete text from the screen clear field. Field not work with slider mode"
+    },
+    {
+      "type": "header",
+      "content": "Products settings",
+      "info": ""
+    },
+    {
+      "label": "Collection",
+      "id": "atb_collection",
+      "type": "collection",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_doblesize",
+      "label": "Double size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_limit",
+      "label": "Items Length. Integer",
+      "default": "10",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_show_title' -%}
+{%- assign atb_show_title = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_text3' -%}
+{%- assign atb_text3 = val -%}
+{%- include 'atb-render' field:'atb_collection' -%}
+{%- assign atb_collection = val -%}
+{%- include 'atb-render' field:'atb_doblesize' -%}
+{%- assign atb_doblesize = val -%}
+{%- include 'atb-render' field:'atb_limit' -%}
+{%- assign atb_limit = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_show_title == blank -%}
+{%- assign atb_show_title = false -%}
+{%- else -%}
+{%- assign atb_show_title = true -%}
+{%- endif -%}
+{%- if atb_doblesize == blank -%}
+{%- assign atb_doblesize = false -%}
+{%- else -%}
+{%- assign atb_doblesize = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign slider_mode = true -%}
+{%- assign item = section.settings -%}
+
+{%- assign name_collection = item.collection -%}
+{%- if name_collection == blank -%}{%- assign name_collection = "all" -%}{%- endif -%}
+{%- assign collection = collections[name_collection] -%}
+{%- assign length = item.limit | plus: 0 -%}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent">
+  <div class="container{% if item.fullwidth %}-fluid{% endif %}" data-sectionname="index_sectionmasonry_products">
+    {% if item.show_title %}<div class="tt-block-title">
+      <h2 class="tt-title">{{ item.text1 }}</h2>
+      {% unless item.text2 == '' %}<div class="tt-description">{{ item.text2 }}</div>{% endunless %}
+      {% unless item.default_carousel %}{% unless item.text3 == '' %}<p>{{ item.text3 }}</p>{% endunless %}{% endunless %}
+    </div>{% endif %}
+    <div class="tt-product-listing-masonry">
+      <div class="tt-product-index-init tt-add-item">
+        {%- for product in collection.products limit: length -%}
+        {%- if item.doblesize -%}
+        {%- capture masonrydoublesize -%}{%- cycle = '', '', 'double-size', '', '', 'double-size', '', '', '', '' -%}{%- endcapture -%}
+        {%- capture external_size -%}{%- cycle = '500x', '500x', '1024x', '500x', '500x', '1024x', '500x', '500x', '500x', '500x' -%}{%- endcapture -%}
+        {%- else -%}{%- assign external_size = '500x' -%}
+        {%- endif -%}
+        
+        {%- unless settings.products_design == 'hidden' -%}<div class="element-item {{ masonrydoublesize }}">{%- endunless -%}
+          {%- include "product-grid-item" -%}
+        {%- unless settings.products_design == 'hidden' -%}</div>{%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>

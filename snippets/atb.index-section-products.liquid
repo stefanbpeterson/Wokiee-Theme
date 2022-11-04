@@ -1,0 +1,464 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Products",
+  "class": "index-section",
+  "id": "index-section-products",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_custom_classes",
+      "label": "Custom css classes",
+      "info": "For the custom styles. Add your styles in the theme.css.liquid"
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_nopaddings",
+      "label": "No paddings",
+      "default": false,
+      "info": "!!! Please use this option with product thumbnail design \"type 2\""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_title",
+      "label": "Show Title Block",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_title_to_left",
+      "label": "Title to left",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_boxed_title",
+      "label": "Boxed title when fullwidth",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "OUR COLLECTIONS",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Small description",
+      "default": "SUMMER 2018",
+      "info": "Empty field = hide field"
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text3",
+      "label": "Big description",
+      "info": "Empty field = hide field. Not work with slider mode"
+    },
+    {
+      "type": "header",
+      "content": "Show all button",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_use_title_as_link",
+      "label": "Use title as link to the collection",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_button",
+      "label": "Show button",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_button_text",
+      "label": "Button text",
+      "default": "SHOW ALL",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Products settings",
+      "info": ""
+    },
+    {
+      "label": "Collection",
+      "id": "atb_collection",
+      "type": "collection",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_items_always_in_center",
+      "label": "Products in center",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_limit",
+      "label": "Items Length. Integer",
+      "default": "8",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_items",
+      "label": "Products In Row",
+      "options": [
+        {
+          "value": "6",
+          "label": "2"
+        },
+        {
+          "value": "4",
+          "label": "3"
+        },
+        {
+          "value": "3",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "2",
+          "label": "6"
+        }
+      ],
+      "default": "3",
+      "info": "For screen size > 1024"
+    },
+    {
+      "type": "header",
+      "content": "By Default Carousel",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_default_carousel",
+      "label": "Default Carousel",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_boxed_buttons",
+      "label": "Boxed buttons when fullwidth",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_toshow",
+      "label": "Items in row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "4",
+      "info": "For screen size > 1024"
+    },
+    {
+      "type": "select",
+      "id": "atb_step",
+      "label": "Slides To Scroll",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_module_autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        }
+      ],
+      "default": "7000",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_custom_classes' -%}
+{%- assign atb_custom_classes = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_nopaddings' -%}
+{%- assign atb_nopaddings = val -%}
+{%- include 'atb-render' field:'atb_show_title' -%}
+{%- assign atb_show_title = val -%}
+{%- include 'atb-render' field:'atb_title_to_left' -%}
+{%- assign atb_title_to_left = val -%}
+{%- include 'atb-render' field:'atb_boxed_title' -%}
+{%- assign atb_boxed_title = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_text3' -%}
+{%- assign atb_text3 = val -%}
+{%- include 'atb-render' field:'atb_use_title_as_link' -%}
+{%- assign atb_use_title_as_link = val -%}
+{%- include 'atb-render' field:'atb_show_button' -%}
+{%- assign atb_show_button = val -%}
+{%- include 'atb-render' field:'atb_button_text' -%}
+{%- assign atb_button_text = val -%}
+{%- include 'atb-render' field:'atb_collection' -%}
+{%- assign atb_collection = val -%}
+{%- include 'atb-render' field:'atb_items_always_in_center' -%}
+{%- assign atb_items_always_in_center = val -%}
+{%- include 'atb-render' field:'atb_limit' -%}
+{%- assign atb_limit = val -%}
+{%- include 'atb-render' field:'atb_items' -%}
+{%- assign atb_items = val -%}
+{%- include 'atb-render' field:'atb_default_carousel' -%}
+{%- assign atb_default_carousel = val -%}
+{%- include 'atb-render' field:'atb_boxed_buttons' -%}
+{%- assign atb_boxed_buttons = val -%}
+{%- include 'atb-render' field:'atb_toshow' -%}
+{%- assign atb_toshow = val -%}
+{%- include 'atb-render' field:'atb_step' -%}
+{%- assign atb_step = val -%}
+{%- include 'atb-render' field:'atb_module_autoplay' -%}
+{%- assign atb_module_autoplay = val -%}
+{%- include 'atb-render' field:'atb_delay_time' -%}
+{%- assign atb_delay_time = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_nopaddings == blank -%}
+{%- assign atb_nopaddings = false -%}
+{%- else -%}
+{%- assign atb_nopaddings = true -%}
+{%- endif -%}
+{%- if atb_show_title == blank -%}
+{%- assign atb_show_title = false -%}
+{%- else -%}
+{%- assign atb_show_title = true -%}
+{%- endif -%}
+{%- if atb_title_to_left == blank -%}
+{%- assign atb_title_to_left = false -%}
+{%- else -%}
+{%- assign atb_title_to_left = true -%}
+{%- endif -%}
+{%- if atb_boxed_title == blank -%}
+{%- assign atb_boxed_title = false -%}
+{%- else -%}
+{%- assign atb_boxed_title = true -%}
+{%- endif -%}
+{%- if atb_use_title_as_link == blank -%}
+{%- assign atb_use_title_as_link = false -%}
+{%- else -%}
+{%- assign atb_use_title_as_link = true -%}
+{%- endif -%}
+{%- if atb_show_button == blank -%}
+{%- assign atb_show_button = false -%}
+{%- else -%}
+{%- assign atb_show_button = true -%}
+{%- endif -%}
+{%- if atb_items_always_in_center == blank -%}
+{%- assign atb_items_always_in_center = false -%}
+{%- else -%}
+{%- assign atb_items_always_in_center = true -%}
+{%- endif -%}
+{%- if atb_default_carousel == blank -%}
+{%- assign atb_default_carousel = false -%}
+{%- else -%}
+{%- assign atb_default_carousel = true -%}
+{%- endif -%}
+{%- if atb_boxed_buttons == blank -%}
+{%- assign atb_boxed_buttons = false -%}
+{%- else -%}
+{%- assign atb_boxed_buttons = true -%}
+{%- endif -%}
+{%- if atb_module_autoplay == blank -%}
+{%- assign atb_module_autoplay = false -%}
+{%- else -%}
+{%- assign atb_module_autoplay = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+
+{%- assign grid = item.items -%}
+{%- assign name_collection = item.collection -%}
+{%- if name_collection == blank -%}{%- assign name_collection = "all" -%}{%- endif -%}
+{%- assign collection = collections[name_collection] -%}
+{%- assign length = item.limit | plus: 0 -%}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent {{ item.custom_classes }}">
+  {% if item.nopaddings %}<div class="nopaddingspr">{% endif %}
+  <div class="container{% if item.fullwidth %}-fluid-custom{% endif %} container-fluid-custom-mobile-padding" data-sectionname="index_sectionproducts">
+    {%- if item.show_title -%}<div class="tt-block-title{% if item.title_to_left %} text-left{% endif %}{% if item.boxed_title and item.fullwidth %} container{% endif %}">
+      <h2 class="tt-title">
+        {%- if item.use_title_as_link -%}<a href="/collections/{{ collection.handle }}" class="title-hover-underline" title="{{ item.button_text }}">{{ item.text1 }}</a>
+        {%- else -%}{{ item.text1 }}
+        {%- endif -%}
+      </h2>
+      {% unless item.text2 == '' %}<div class="tt-description">{{ item.text2 }}</div>{% endunless %}
+      {% unless item.default_carousel %}{% unless item.text3 == '' %}<p>{{ item.text3 }}</p>{% endunless %}{% endunless %}
+    </div>{%- endif -%}
+
+    {%- if item.default_carousel -%}
+    {%- assign slider_mode = true -%}
+    <div class="{% if item.boxed_buttons and item.fullwidth %}slboxedbuttons {% endif %}tt-carousel-products-js row arrow-location-tab tt-alignment-img tt-layout-product-item slick-animated-show-js" data-slick='{"slidesToShow": {{ item.toshow }}, "slidesToScroll": {{ item.step }}, "autoplay": {{ item.module_autoplay }}, "autoplaySpeed": {{ item.delay_time }}}'>
+      {%- for product in collection.products limit: length -%}
+      <div class="forsliders-margins">
+        {%- include "product-grid-item" -%}
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- else -%}
+    <div class="row tt-layout-product-item{% if item.items_always_in_center %} justify-content-center{% endif %}">
+      {%- for product in collection.products limit: length -%}
+      <div class="col-6 col-md-4 {% if grid == '5' %}col-5-inrow-lg{% else %}col-lg-{{ grid }}{% endif %}">
+        {%- include "product-grid-item" -%}
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+    
+    {%- if item.show_button -%}
+    <div class="text-center">
+      <a href="/collections/{{ collection.handle }}" class="btn btn-border btn-top">{{ item.button_text }}</a>
+    </div>
+    {%- endif -%}
+
+  </div>
+  {% if item.nopaddings %}</div>{% endif %}
+</div>
+
+
+</section>

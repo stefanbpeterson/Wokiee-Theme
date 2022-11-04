@@ -1,0 +1,589 @@
+{% assign artimagesize = '400x' %}
+{% assign artheader = '<h4>Related Articles</h4>' %}
+{% assign arttruncate = 10 %}
+{% assign titleweight = 5 %}
+{% assign tagweight = 1 %}
+{% assign authweight = 1 %}
+{% assign authdisplay = 8 %}
+{% assign slideritems = 4 %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+
+{% assign listalignment = 'vertical' %}
+
+{% assign art1Match = 0 %}
+{% assign art1URL = '' %}
+{% assign art1img = '' %}
+{% assign art1title = '' %}
+{% assign art1excerpt = '' %}
+
+{% assign art2Match = 0 %}
+{% assign art2URL = '' %}
+{% assign art2img = '' %}
+{% assign art2title = '' %}
+{% assign art2excerpt = '' %}
+
+{% assign art3Match = 0 %}
+{% assign art3URL = '' %}
+{% assign art3img = '' %}
+{% assign art3title = '' %}
+{% assign art3excerpt = '' %}
+
+{% assign art4Match = 0 %}
+{% assign art4URL = '' %}
+{% assign art4img = '' %}
+{% assign art4title = '' %}
+{% assign art4excerpt = '' %}
+
+{% assign art5Match = 0 %}
+{% assign art5URL = '' %}
+{% assign art5img = '' %}
+{% assign art5title = '' %}
+{% assign art5excerpt = '' %}
+
+{% assign art6Match = 0 %}
+{% assign art6URL = '' %}
+{% assign art6img = '' %}
+{% assign art6title = '' %}
+{% assign art6excerpt = '' %}
+
+{% assign art7Match = 0 %}
+{% assign art7URL = '' %}
+{% assign art7img = '' %}
+{% assign art7title = '' %}
+{% assign art7excerpt = '' %}
+
+{% assign art8Match = 0 %}
+{% assign art8URL = '' %}
+{% assign art8img = '' %}
+{% assign art8title = '' %}
+{% assign art8excerpt = '' %}
+
+{% assign art9Match = 0 %}
+{% assign art9URL = '' %}
+{% assign art9img = '' %}
+{% assign art9title = '' %}
+{% assign art9excerpt = '' %}
+
+{% assign art10Match = 0 %}
+{% assign art10URL = '' %}
+{% assign art10img = '' %}
+{% assign art10title = '' %}
+{% assign art10excerpt = '' %}
+
+<!-- Related Articles -->
+{% paginate blog.articles by 1000 %}
+{% for articles in blog.articles %}
+	{% assign TagCount = 0 %}
+	{% if articles.url <> article.url %}
+
+	{% capture articles_contents %}
+		{% include 'pro-blogger.shortcode' load: articles.content %}
+        {% endcapture %}
+        
+        {% assign articles_cont_arr = articles_contents | split: '<!-- excerpt -->' %}
+        {% if articles_cont_arr.size > 0 %}
+                {% assign articles_contents = articles_cont_arr | last %}
+        {% endif %}
+
+      {% assign titlearr = articles.title | split: ' ' %}
+      {% for t in titlearr %}
+        {% assign t2 = t | strip %}
+        {% assign t3 = t2 | downcase %}
+
+        	{% for arttag in article.tags %}
+            	{% assign arttag2 = arttag | downcase %}
+                {% if t3 contains arttag2 %}
+                      {% assign TagCount = TagCount | plus:titleweight %}
+                {% endif %}
+             {% endfor %}
+      {% endfor %}
+
+	{% if articles.author == article.author %}
+		 {% assign TagCount = TagCount | plus:authweight %}
+	{% endif %}
+
+   	{% for tag in articles.tags %}
+		{% assign t2 = tag | downcase %}
+		{% for arttag in article.tags %}
+			{% assign arttag2 = arttag | downcase %}
+			{% if t2 contains arttag2 %}
+				{% assign TagCount = TagCount | plus:tagweight %}
+			{% endif %}
+		{% endfor %}
+    {% endfor %}
+
+	 {% if TagCount > 0 %}
+		{% if TagCount >= art1Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = art5Match %}
+                {% assign art6URL = art5URL %}
+                {% assign art6img = art5img %}
+                {% assign art6title = art5title %}
+                {% assign art6excerpt = art5excerpt %}
+
+		{% assign art5Match = art4Match %}
+                {% assign art5URL = art4URL %}
+                {% assign art5img = art4img %}
+                {% assign art5title = art4title %}
+                {% assign art5excerpt = art4excerpt %}
+
+		{% assign art4Match = art3Match %}
+                {% assign art4URL = art3URL %}
+                {% assign art4img = art3img %}
+                {% assign art4title = art3title %}
+                {% assign art4excerpt = art3excerpt %}
+
+		{% assign art3Match = art2Match %}
+                {% assign art3URL = art2URL %}
+                {% assign art3img = art2img %}
+                {% assign art3title = art2title %}
+                {% assign art3excerpt = art2excerpt %}
+
+		{% assign art2Match = art1Match %}
+                {% assign art2URL = art1URL %}
+                {% assign art2img = art1img %}
+                {% assign art2title = art1title %}
+                {% assign art2excerpt = art1excerpt %}
+
+		{% assign art1Match = TagCount %}
+                {% assign art1URL = articles.url %}
+                {% assign art1img = articles.image | img_url: artimagesize %}
+                {% assign art1title = articles.title | escape %}
+                {% assign art1excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art2Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = art5Match %}
+                {% assign art6URL = art5URL %}
+                {% assign art6img = art5img %}
+                {% assign art6title = art5title %}
+                {% assign art6excerpt = art5excerpt %}
+
+		{% assign art5Match = art4Match %}
+                {% assign art5URL = art4URL %}
+                {% assign art5img = art4img %}
+                {% assign art5title = art4title %}
+                {% assign art5excerpt = art4excerpt %}
+
+		{% assign art4Match = art3Match %}
+                {% assign art4URL = art3URL %}
+                {% assign art4img = art3img %}
+                {% assign art4title = art3title %}
+                {% assign art4excerpt = art3excerpt %}
+
+		{% assign art3Match = art2Match %}
+                {% assign art3URL = art2URL %}
+                {% assign art3img = art2img %}
+                {% assign art3title = art2title %}
+                {% assign art3excerpt = art2excerpt %}
+
+
+    		{% assign art2Match = TagCount %}
+                {% assign art2URL = articles.url %}
+                {% assign art2img = articles.image | img_url: artimagesize %}
+                {% assign art2title = articles.title | escape %}
+                {% assign art2excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art3Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = art5Match %}
+                {% assign art6URL = art5URL %}
+                {% assign art6img = art5img %}
+                {% assign art6title = art5title %}
+                {% assign art6excerpt = art5excerpt %}
+
+		{% assign art5Match = art4Match %}
+                {% assign art5URL = art4URL %}
+                {% assign art5img = art4img %}
+                {% assign art5title = art4title %}
+                {% assign art5excerpt = art4excerpt %}
+
+		{% assign art4Match = art3Match %}
+                {% assign art4URL = art3URL %}
+                {% assign art4img = art3img %}
+                {% assign art4title = art3title %}
+                {% assign art4excerpt = art3excerpt %}
+
+     		{% assign art3Match = TagCount %}
+                {% assign art3URL = articles.url %}
+                {% assign art3img = articles.image | img_url: artimagesize %}
+                {% assign art3title = articles.title | escape %}
+                {% assign art3excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art4Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = art5Match %}
+                {% assign art6URL = art5URL %}
+                {% assign art6img = art5img %}
+                {% assign art6title = art5title %}
+                {% assign art6excerpt = art5excerpt %}
+
+		{% assign art5Match = art4Match %}
+                {% assign art5URL = art4URL %}
+                {% assign art5img = art4img %}
+                {% assign art5title = art4title %}
+                {% assign art5excerpt = art4excerpt %}
+
+     		{% assign art4Match = TagCount %}
+                {% assign art4URL = articles.url %}
+                {% assign art4img = articles.image | img_url: artimagesize %}
+                {% assign art4title = articles.title | escape %}
+                {% assign art4excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art5Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = art5Match %}
+                {% assign art6URL = art5URL %}
+                {% assign art6img = art5img %}
+                {% assign art6title = art5title %}
+                {% assign art6excerpt = art5excerpt %}
+
+     		{% assign art5Match = TagCount %}
+                {% assign art5URL = articles.url %}
+                {% assign art5img = articles.image | img_url: artimagesize %}
+                {% assign art5title = articles.title | escape %}
+                {% assign art5excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art6Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = art6Match %}
+                {% assign art7URL = art6URL %}
+                {% assign art7img = art6img %}
+                {% assign art7title = art6title %}
+                {% assign art7excerpt = art6excerpt %}
+
+		{% assign art6Match = TagCount %}
+                {% assign art6URL = articles.url %}
+                {% assign art6img = articles.image | img_url: artimagesize %}
+                {% assign art6title = articles.title | escape %}
+                {% assign art6excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art7Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = art7Match %}
+                {% assign art8URL = art7URL %}
+                {% assign art8img = art7img %}
+                {% assign art8title = art7title %}
+                {% assign art8excerpt = art7excerpt %}
+
+		{% assign art7Match = TagCount %}
+                {% assign art7URL = articles.url %}
+                {% assign art7img = articles.image | img_url: artimagesize %}
+                {% assign art7title = articles.title | escape %}
+                {% assign art7excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art8Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = art8Match %}
+                {% assign art9URL = art8URL %}
+                {% assign art9img = art8img %}
+                {% assign art9title = art8title %}
+                {% assign art9excerpt = art8excerpt %}
+
+		{% assign art8Match = TagCount %}
+                {% assign art8URL = articles.url %}
+                {% assign art8img = articles.image | img_url: artimagesize %}
+                {% assign art8title = articles.title | escape %}
+                {% assign art8excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount >= art9Match %}
+
+		{% assign art10Match = art9Match %}
+                {% assign art10URL = art9URL %}
+                {% assign art10img = art9img %}
+                {% assign art10title = art9title %}
+                {% assign art10excerpt = art9excerpt %}
+
+		{% assign art9Match = TagCount %}
+                {% assign art9URL = articles.url %}
+                {% assign art9img = articles.image | img_url: artimagesize %}
+                {% assign art9title = articles.title | escape %}
+                {% assign art9excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% elsif TagCount > art10Match %}
+
+		{% assign art10Match = TagCount %}
+                {% assign art10URL = articles.url %}
+                {% assign art10img = articles.image | img_url: artimagesize %}
+                {% assign art10title = articles.title | escape %}
+                {% assign art10excerpt = articles_contents | strip_html | truncatewords: arttruncate  %}
+
+		{% endif %}
+		{% endif %}
+	{% endif %}
+
+{% endfor %}
+{% endpaginate %}
+
+{{ 'problogger.scss.css' | asset_url | stylesheet_tag }}
+{{ 'problogger-custom.scss.css' | asset_url | stylesheet_tag }}
+
+{% if art1Match == 0 or authdisplay  == 0 %}
+{% else %}
+
+	<script type="text/javascript">
+
+		var related_articles_slider_options = {"enabled": true, "slider_display": 4};
+
+	</script>
+
+	<div id="related_articles_header" style="display: none">{{ artheader }}</div>
+  	<div id="related_articles_slider" class="owl-carousel">
+
+	      {% assign articleURL = art1URL %}
+	      {% assign articleImg = art1img %}
+	      {% assign articleTitle = art1title %}
+	      {% assign articleExcerpt = art1excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	{% if art2Match > 0 and authdisplay > 1 %}
+
+	      {% assign articleURL = art2URL %}
+	      {% assign articleImg = art2img %}
+	      {% assign articleTitle = art2title %}
+	      {% assign articleExcerpt = art2excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+	
+    	{% endif %}
+	{% if art3Match > 0 and authdisplay > 2 %}
+
+	      {% assign articleURL = art3URL %}
+	      {% assign articleImg = art3img %}
+	      {% assign articleTitle = art3title %}
+	      {% assign articleExcerpt = art3excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	{% endif %}
+	{% if art4Match > 0 and authdisplay > 3 %}
+      
+	      {% assign articleURL = art4URL %}
+	      {% assign articleImg = art4img %}
+	      {% assign articleTitle = art4title %}
+	      {% assign articleExcerpt = art4excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+    {% endif %}
+    {% if art5Match > 0 and authdisplay > 4 %}
+      
+	      {% assign articleURL = art5URL %}
+	      {% assign articleImg = art5img %}
+	      {% assign articleTitle = art5title %}
+	      {% assign articleExcerpt = art5excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	{% endif %}
+	{% if art6Match > 0 and authdisplay > 5 %}
+      
+	      {% assign articleURL = art6URL %}
+	      {% assign articleImg = art6img %}
+	      {% assign articleTitle = art6title %}
+	      {% assign articleExcerpt = art6excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	 {% endif %}
+	 {% if art7Match > 0 and authdisplay > 6 %}
+      
+	      {% assign articleURL = art7URL %}
+	      {% assign articleImg = art7img %}
+	      {% assign articleTitle = art7title %}
+	      {% assign articleExcerpt = art7excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	 {% endif %}
+	 {% if art8Match > 0 and authdisplay > 7 %}
+
+		{% assign articleURL = art8URL %}
+		{% assign articleImg = art8img %}
+		{% assign articleTitle = art8title %}
+		{% assign articleExcerpt = art8excerpt %}
+
+		{% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	{% endif %}
+      	{% if art9Match > 0 and authdisplay > 8 %}
+		{% assign articleURL = art9URL %}
+		{% assign articleImg = art9img %}
+		{% assign articleTitle = art9title %}
+		{% assign articleExcerpt = art9excerpt %}
+
+		{% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+	{% endif %}
+      	{% if art10Match > 0 and authdisplay > 9 %}
+
+	      {% assign articleURL = art10URL %}
+	      {% assign articleImg = art10img %}
+	      {% assign articleTitle = art10title %}
+	      {% assign articleExcerpt = art10excerpt %}
+
+	      {% include 'pro-blogger.snippet.related-item' with isarticle:true %}
+
+      {% endif %}
+	</div>
+{% endif %}
+			

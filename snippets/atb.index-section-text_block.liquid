@@ -1,0 +1,83 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Text Block",
+  "class": "index-section",
+  "id": "index-section-text_block",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "WELCOME!",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Small description",
+      "default": "ABOUT OUR STORE",
+      "info": "Empty field = hide field"
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_center_b_d",
+      "label": "Center big description",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text3",
+      "label": "Big description",
+      "default": "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+      "info": "Empty field = hide field"
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_center_b_d' -%}
+{%- assign atb_center_b_d = val -%}
+{%- include 'atb-render' field:'atb_text3' -%}
+{%- assign atb_text3 = val -%}
+{%- if atb_center_b_d == blank -%}
+{%- assign atb_center_b_d = false -%}
+{%- else -%}
+{%- assign atb_center_b_d = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+<div class="container-indent">
+  <div class="container">
+    <div class="tt-block-title">
+      <h1 class="tt-title">{{ item.text1 }}</h1>
+      {% unless item.text2 == '' %}<div class="tt-description">{{ item.text2 }}</div>{% endunless %}
+    </div>
+    {% unless item.text3 == '' %}<div{% if item.center_b_d %} class="text-center"{% endif %}>
+      {{ item.text3 }}
+    </div>{% endunless %}
+  </div>
+</div>
+
+</section>

@@ -1,0 +1,443 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Tabs Vertical",
+  "class": "index-section",
+  "max_blocks": 8,
+  "id": "index-section-tabs-vertical",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_default_grid",
+      "label": "Default grid",
+      "options": [
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ],
+      "default": "5",
+      "info": "For screen size > 1024"
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Description",
+      "default": "WINTER 2019/20",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Title",
+      "default": "WOMEN",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_hide_tabs",
+      "label": "Hide tab name",
+      "default": false,
+      "info": "Use when tabs counter equal 1"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext",
+      "label": "Text 1 color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext2",
+      "label": "Text 2 color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Tabs color",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_tbcolor",
+      "label": "Tabs text base color",
+      "default": "#777777",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_tbcolora",
+      "label": "Tabs text active color",
+      "default": "#2879fe",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_acbtnbg",
+      "label": "Active background color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_background_alpha_a",
+      "label": "Active background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Tab-Gallery"
+    },
+    {
+      "type": "text",
+      "id": "block_tab_name",
+      "label": "Tab Name",
+      "default": "Tab",
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    },
+    {
+      "label": "Collection",
+      "id": "block_collection",
+      "type": "collection",
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_limit",
+      "label": "Items Length. Integer",
+      "default": "8",
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings",
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_toshow",
+      "label": "Products In Row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "4",
+      "info": "For screen size > 1024",
+      "repeatable": "Tab-Gallery"
+    },
+    {
+      "type": "select",
+      "id": "block_step",
+      "label": "Slides To Scroll",
+      "default": "1",
+      "info": "Max = Products In Row",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "repeatable": "Tab-Gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_module_autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        }
+      ],
+      "default": "7000",
+      "repeatable": "Tab-Gallery",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_default_grid' -%}
+{%- assign atb_default_grid = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_hide_tabs' -%}
+{%- assign atb_hide_tabs = val -%}
+{%- include 'atb-render' field:'atb_cbtntext' -%}
+{%- assign atb_cbtntext = val -%}
+{%- include 'atb-render' field:'atb_cbtntext2' -%}
+{%- assign atb_cbtntext2 = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_tbcolor' -%}
+{%- assign atb_tbcolor = val -%}
+{%- include 'atb-render' field:'atb_tbcolora' -%}
+{%- assign atb_tbcolora = val -%}
+{%- include 'atb-render' field:'atb_acbtnbg' -%}
+{%- assign atb_acbtnbg = val -%}
+{%- include 'atb-render' field:'atb_background_alpha_a' -%}
+{%- assign atb_background_alpha_a = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_tab_name' -%}
+{%- assign block_tab_name = val -%}
+{%- include 'atb-render' field:'block_collection' -%}
+{%- assign block_collection = val -%}
+{%- include 'atb-render' field:'block_limit' -%}
+{%- assign block_limit = val -%}
+{%- include 'atb-render' field:'block_toshow' -%}
+{%- assign block_toshow = val -%}
+{%- include 'atb-render' field:'block_step' -%}
+{%- assign block_step = val -%}
+{%- include 'atb-render' field:'block_module_autoplay' -%}
+{%- assign block_module_autoplay = val -%}
+{%- include 'atb-render' field:'block_delay_time' -%}
+{%- assign block_delay_time = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_hide_tabs == blank -%}
+{%- assign atb_hide_tabs = false -%}
+{%- else -%}
+{%- assign atb_hide_tabs = true -%}
+{%- endif -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+{%- assign info_image_size = '220x435px' %}
+{%- assign img_size = info_image_size | split: 'x' | first | append: 'x' -%}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent" data-sectionname="index_verticaltabs" data-respjs="index_sectiontabs">
+  <div class="container{% if item.fullwidth %}-fluid-custom{% endif %} container-fluid-custom-mobile-padding v-tabs-content">
+
+    <div class="row">
+      <div class="col-6 col-sm-4{% if item.default_grid == '5' %} col-5-inrow-lg{% else %} col-md-3{% endif %}">
+        <div class="v-tabs-img-box v-tabs-img-box{{ section_id }}">
+          {%- if item.image == blank -%}{%- include "get_svg" type:'image' size:info_image_size -%}
+          {%- else -%}
+          {%- assign scale_numbers = '_' | append: img_size -%}
+          <img class="lazyload"
+               src="{{ item.image | img_url: img_size }}"
+               data-src="{{ item.image | img_url: img_size }}"
+               data-srcset="{% include 'atb-lazyload_string'  value: item.image  %}"
+               alt="{{ item.image.alt }}">
+          {%- endif -%}
+          <div class="v-tabs-img-box-text">
+            <p>{{ item.text1 }}</p>
+            <h2>{{ item.text2 }}</h2>
+            {% unless item.hide_tabs %}
+            <ul class="nav tt-tabs-default" role="tablist">
+              {%- for block0 in blocks -%}
+{%- if block_module_autoplay[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+              <li>
+                <a href="#{{ section_id }}{{ forloop.index }}" class="nav-link {% if forloop.first %} active{% endif %}" data-toggle="tab" role="tab">{{ block_tab_name[forloop.index0] }}</a>
+              </li>
+              {%- endfor -%}
+            </ul>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-8{% if item.default_grid == '5' %} col-5_end-inrow-lg{% else %} col-md-9{% endif %}">
+        <div class="nav tt-tabs-default hide" role="tablist">
+          {%- for block0 in blocks -%}
+{%- if block_module_autoplay[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+          <a href="#{{ section_id }}{{ forloop.index }}" data-toggle="tab" role="tab">{{ block_tab_name[forloop.index0] }}</a>
+          {%- endfor -%}
+        </div>
+        <div class="tab-content">
+          {%- for block0 in blocks -%}
+{%- if block_module_autoplay[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+          {%- assign name_collection = block_collection[forloop.index0] -%}
+          {%- if name_collection == blank -%}{%- assign name_collection = "all" -%}{%- endif -%}
+          {%- assign collection = collections[name_collection] -%}
+          <div id="{{ section_id }}{{ forloop.index }}" class="tab-pane{% if forloop.first %} active{% endif %}" role="tabpanel" {{ block.shopify_attributes }}>
+            <div class="ajaxcontent startajax slider" data-content="col_{{ collection.handle }}+num_{{ block_limit[forloop.index0] }}+col-lg-{{ block_toshow[forloop.index0] }}+toshow_{{ block_toshow[forloop.index0] }}+slider_true+step_{{ block_step[forloop.index0] }}+autoplay_{{ my_checkbox0 }}+speed_{{ block_delay_time[forloop.index0] }}{% if item.show_title %}+showtitle_{% endif %}"></div>
+          </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .v-tabs-img-box{{ section_id }} p{
+  	color: {{ item.cbtntext }};
+  }
+  .v-tabs-img-box{{ section_id }} .v-tabs-img-box-text h2:not(.small):not([class^="tt-title"]):not([class^="tt-collapse"]):not([class^="tt-aside"]){
+  	color: {{ item.cbtntext2 }};
+  }
+  .v-tabs-img-box{{ section_id }} .v-tabs-img-box-text ul a{
+    color: {{ item.tbcolor }};  
+  }
+  .v-tabs-img-box{{ section_id }} .v-tabs-img-box-text ul a.active,
+  .v-tabs-img-box{{ section_id }} .v-tabs-img-box-text ul a:hover{
+    color: {{ item.tbcolora }};
+    {%- assign bg_alpha_a = item.background_alpha_a | divided_by: 100.00 -%}
+    {%- assign bg_color_a = item.acbtnbg | color_modify: 'alpha', bg_alpha_a -%}
+    background: {{ bg_color_a }};
+  }
+</style>
+
+
+</section>

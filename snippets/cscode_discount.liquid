@@ -1,0 +1,86 @@
+<script>
+  {% assign vd_url = 'https://aiod.cirkleinc.com' %}
+  {% assign csapps_page_type = "" %}
+    window.csapps = {
+      shop_slug: "{{shop.permanent_domain | remove: '.myshopify.com' }}",
+      store_id: "{{shop.permanent_domain}}",
+      store_domain: "{{shop.domain}}",
+      money_format: "{{shop.money_format | replace: '"', "'"}}",
+      cart: null,
+      product: null,
+      product_collections: null,
+      product_variants: null,
+      is_volume_discount: null,
+      is_bundle_discount: null,
+      bundle_class: '.aiod-bundle-discount-wrap',
+      product_id: null,
+      page_type: null,
+      vd_url: '{{ vd_url }}',
+      customer: null,
+      currency_symbol: "{%- for currency in shop.enabled_currencies -%} {%- if currency.iso_code == shop.currency -%}{{ currency.symbol }}{%- break -%}{%- endif -%}{%- endfor -%}"
+    }
+	window.csapps.page_type = "index";
+    {% if customer %}
+      window.csapps.customer = {
+        id: {{customer.id}}
+      }
+    {% endif %}
+	{% if template contains "cart" %}
+    window.csapps.page_type = "cart";
+	{% endif %}
+    window.csapps.cart = {{ cart | json }}
+    if (typeof window.csapps.cart.items == "object") {
+      for (var i=0; i<window.csapps.cart.items.length; i++) {
+        ["sku", "grams", "vendor", "url", "image", "handle", "requires_shipping", "product_type", "product_description"].map(function(a) {
+          delete window.csapps.cart.items[i][a]
+        })
+      }
+    }
+    window.csapps.cart_collections = {}
+    {% for item in cart.items %}
+      window.csapps.cart_collections["{{item.variant_id}}"] = []
+      {% for c in item.product.collections %}
+        window.csapps.cart_collections["{{item.variant_id}}"].push({{c.id}})
+      {% endfor %}
+    {% endfor %}
+
+  {% if template contains "product" %}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+    window.csapps.page_type = "product"
+    window.csapps.product_id = "{{ product.id }}";
+    window.csapps.product = {{ product | json }}
+
+
+    window.csapps.product_collection = []
+    {% for collection in product.collections %}
+      window.csapps.product_collection.push({{collection.id}})
+    {% endfor %}
+
+    window.csapps.product_variant = []
+    {% for variant in product.variants %}
+      window.csapps.product_variant.push({{variant.id}})
+    {% endfor %}
+
+    window.csapps.product_collections = window.csapps.product_collection.toString();
+    window.csapps.product_variants = window.csapps.product_variant.toString();
+
+  {% endif %}
+
+  {% if template contains "collection" %}
+    {% unless template contains "list-collections" %}
+    window.csapps.page_type = "collection";
+    window.csapps.collection_id = "{{ collection.id }}";
+    {% endunless %}
+  {% endif %}
+
+</script>
+
+{% if template contains "cart" %}
+  <div class="edit_popup" style="display: none;">
+    <form method="post" action="/cart/add" id="edit_cart_popup" class="edit_form" enctype="multipart/form-data">
+    </form>
+  </div>
+{% endif %}
+
+<link href="{{ vd_url }}/frontcripts/csapp_all_in_one.min.css?v={{ 'now' | date: '%s' }}" rel="stylesheet" type="text/css" media="all">
+<script src="{{ vd_url }}/frontcripts/cscodejs.min.js?v={{ 'now' | date: '%s' }}" defer="defer"></script>

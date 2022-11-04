@@ -1,0 +1,136 @@
+/* Do not modify this file as it will be overwritten in future upgrades - use the problogger-custom.scss.liquid file instead */
+
+.owl-carousel .owl-item h4 {
+  text-align: center;
+  margin-bottom: 0px;
+ }
+
+.owl-item  {
+  padding : 0px;
+ }
+
+.owl-carousel .owl-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.owl-carousel .owl-item a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.owl-carousel .owl-item a::after {
+border-bottom: 0px;
+}
+
+#related_products_slider .owl-item img {
+    object-fit: scale-down;
+    height: 96%;
+    width: 96%;
+    vertical-align: middle;
+    padding: 0px;
+}
+
+
+#related_articles_slider .owl-item img {
+    object-fit: cover;
+    height: 96%;
+    width: 96%;
+    vertical-align: middle;
+    padding: 0px;
+}
+
+#related_product_articles_slider .owl-item img { 
+  object-fit: cover; 
+  height: 96%; 
+  width: 96%; 
+  vertical-align: middle; 
+  padding: 0px; 
+}
+
+.carousel-image-wrapper { 
+  width: 100%; 
+  vertical-align: middle; 
+  text-align: center; 
+  height: 300px; 
+  
+  @media screen and (min-width: 769px) {
+    height: 200px; 
+  }
+  
+}
+
+
+.carousel-text-wrapper {
+  margin-top: 2px;
+  text-align: center; 
+  padding-left: 6px;
+  padding-right: 6px;
+  
+  .spr-badge-caption {
+    font-size: 8px;
+  }
+}
+
+.carousel-text-price {
+  text-align: center; 
+  margin-top: 4px;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.carousel-text-vendor {
+  text-align: center; 
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 14px;
+}
+
+.carousel-text-excerpt {
+  text-align: center; 
+}
+
+.carousel-image-hover {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+
+}
+
+.carousel-image-wrapper { 
+  position:relative;
+}
+
+.carousel-image-wrapper:hover .carousel-image-hover  {
+  opacity: 1;
+}
+
+.carousel-image-hover .btn {
+  font-size: 10px;
+  padding: 6px;
+
+}
+
+.carousel-image-wrapper:hover img {
+  opacity: 0.3;
+}
+
+.pb-buy-button .btn {
+  font-size: 10px;
+  padding: 6px;
+}
+
+.pb_mid_content_related_products {
+    margin-bottom: 22px;
+    padding-bottom: 8px;
+}
+
+.pb_mid_content_related_products_header {
+    margin-top: 14px;
+    padding-top: 8px;
+}

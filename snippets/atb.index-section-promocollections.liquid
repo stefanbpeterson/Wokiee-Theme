@@ -1,0 +1,207 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Promo Collections",
+  "class": "index-section",
+  "id": "index-section-promocollections",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_items",
+      "label": "Items In Line",
+      "default": "4",
+      "options": [
+        {
+          "value": "6",
+          "label": "2"
+        },
+        {
+          "value": "4",
+          "label": "3"
+        },
+        {
+          "value": "3",
+          "label": "4"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_showtitle",
+      "label": "Show See All",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "See All",
+      "default": "See All Products",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Collection"
+    },
+    {
+      "label": "Collection",
+      "id": "block_collection",
+      "type": "collection",
+      "repeatable": "Collection",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Custom Image",
+      "repeatable": "Collection",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_custom_name",
+      "label": "Custom Name",
+      "info": "If \"Custom Name\" is empty, title = default collection name",
+      "repeatable": "Collection"
+    },
+    {
+      "type": "link_list",
+      "id": "block_linklist",
+      "label": "Links",
+      "repeatable": "Collection",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_items' -%}
+{%- assign atb_items = val -%}
+{%- include 'atb-render' field:'atb_showtitle' -%}
+{%- assign atb_showtitle = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_collection' -%}
+{%- assign block_collection = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_custom_name' -%}
+{%- assign block_custom_name = val -%}
+{%- include 'atb-render' field:'block_linklist' -%}
+{%- assign block_linklist = val -%}
+{%- if atb_showtitle == blank -%}
+{%- assign atb_showtitle = false -%}
+{%- else -%}
+{%- assign atb_showtitle = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+{%- assign grid = atb_items -%}
+{%- capture info_image_size -%}
+{%- case grid -%}
+{%- when '6' -%}600x400px
+{%- when '4' -%}400x350px
+{%- else -%}300x200px
+{%- endcase -%}
+{%- endcapture -%}
+{%- assign img_size = info_image_size | split: 'x' | first | append: 'x' -%}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent">
+  <div class="container container-fluid-custom-mobile-padding">
+    <div class="tt-categories-listing">
+      <div class="row">
+        {%- if blocks.size > 0 -%}
+        {%- for block0 in blocks -%}{%- assign item = block_-[forloop.index0]%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+        {%- assign collection = collections[item.collection] -%}
+        {%- assign links = linklists[item.linklist].links -%}
+        <div class="col-6 col-md-{{ grid }} col-12-440width">
+          <div class="respimgsize tt-items-categories">
+            <a class="tt-title-block" href="{{ collection.url }}">
+              <h2 class="tt-title">{% if item.custom_name != ''%}{{ item.custom_name }}{% else %}{{ collection.title }}{% endif %}</h2>
+              {%- if item.image == blank and collection.image == blank -%}
+              <div style="margin-top: 17px;">{% include "get_svg" type:'collection' size:info_image_size %}</div>
+              {%- else -%}
+              {%- unless item.usecollectionimage -%}
+              <img class="lazyload"
+                   data-mainimageratio = '{{ item.image.aspect_ratio }}'
+                   data-mainimage="{{ item.image | img_url: '100x100' | replace: '100x100', 'respimgsize' }}"
+                   alt="{{ item.image.alt }}">
+              {%- else -%}
+              <img class="lazyload"
+                   data-mainimageratio = '{{ collection.image.aspect_ratio }}'
+                   data-mainimage="{{ collection.image | img_url: '100x100' | replace: '100x100', 'respimgsize' }}"
+                   alt="{{ collection.image.alt }}">
+              {%- endunless -%}
+              {%- endif -%}
+            </a>
+            {%- if links.size > 0 -%}
+            <ul>
+              {%- for link in links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+            {%- if atb_showtitle -%}<a href="{{ collection.url }}" class="btn-link-02">{{ atb_title }}</a>{%- endif -%}
+          </div>
+        </div>
+        {%- endfor -%}
+        {%- else -%}
+        <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>

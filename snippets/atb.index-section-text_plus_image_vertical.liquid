@@ -1,0 +1,1200 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Text Plus Image Vertical",
+  "id": "index-section-text_plus_image_vertical",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Settings",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_contentalign",
+      "label": "Content align",
+      "default": "justify-content-center",
+      "options": [
+        {
+          "value": "justify-content-start",
+          "label": "Left"
+        },
+        {
+          "value": "justify-content-center",
+          "label": "Center"
+        },
+        {
+          "value": "justify-content-end",
+          "label": "Right"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_textalign",
+      "label": "Text align",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_lgsize",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "label": "Big column size for screen > 1024px",
+      "default": 8,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_mdsize",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "label": "Medium column size for screen > 791px",
+      "default": 10,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_colortext1",
+      "label": "Titles color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_colortext2",
+      "label": "Texts color",
+      "default": "#777777",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bg_color",
+      "label": "Button background color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext",
+      "label": "Button text color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bg_color_a",
+      "label": "Button background active color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext_a",
+      "label": "Button text active color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_btn_custom_styles",
+      "label": "Button custom styles",
+      "info": "not for \"Underline by default\""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_btn_custom_styles_hover",
+      "label": "HOVER. Button custom styles",
+      "info": "not for \"Underline by default\""
+    },
+    {
+      "type": "header",
+      "content": "Background Settings",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgcolor",
+      "label": "Use background color or padding",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgco",
+      "label": "Background color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_bgdepad",
+      "label": "Vertical top padding desktop",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgdepad_2",
+      "label": "Vertical bottom padding desktop",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgmopad",
+      "label": "Vertical top padding mobile",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgmopad_2",
+      "label": "Vertical bottom padding mobile",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "paragraph",
+      "content": "Background image",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_showbgimage",
+      "label": "Show background image",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_imagealign",
+      "label": "Image postion",
+      "default": "center",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_imagesize",
+      "label": "Image size",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Full background size"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usemiheight",
+      "label": "Use minimal height",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_backgroundminheight3",
+      "label": "Min height for big screen size",
+      "default": "450",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_backgroundminheight2",
+      "label": "Min height for medium screen size",
+      "default": "450",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_backgroundminheight1",
+      "label": "Min height for mobile screen size",
+      "default": "200",
+      "info": "integer, in px"
+    },
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block Type",
+      "info": "",
+      "default": "",
+      "options": [
+        {
+          "value": "title",
+          "label": "title"
+        },
+        {
+          "value": "text",
+          "label": "text"
+        },
+        {
+          "value": "image",
+          "label": "image"
+        },
+        {
+          "value": "button",
+          "label": "button"
+        },
+        {
+          "value": "buttonlink",
+          "label": "buttonlink"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "block"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text",
+      "label": "Text",
+      "default": "Text",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_textalign",
+      "label": "Text align",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_fontweighttext",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight text",
+      "default": 700,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Desktop screen",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_toppadding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Text top offset",
+      "default": 0,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_toppaddingmulti",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Text top offset multiply",
+      "default": 1,
+      "info": "Text top offset * multiply",
+      "repeatable": "block"
+    },
+    {
+      "type": "range",
+      "id": "block_fontsizetext",
+      "min": 14,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text",
+      "default": 32,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_lineheighttext",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text",
+      "default": 51,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_toppadding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Text top offset",
+      "default": 0,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_fontsizetext_mobile",
+      "min": 14,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text",
+      "default": 32,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "block_lineheighttext_mobile",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text",
+      "default": 51,
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_usetextcolumns",
+      "label": "Use text with 2 columns",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "select",
+      "id": "block_columnswidth",
+      "label": "Columns width",
+      "default": "6.6_6.6",
+      "options": [
+        {
+          "value": "5.4_7.8",
+          "label": "4 / 8"
+        },
+        {
+          "value": "5.5_7.7",
+          "label": "5 / 7"
+        },
+        {
+          "value": "6.6_6.6",
+          "label": "6 / 6"
+        },
+        {
+          "value": "7.7_5.5",
+          "label": "7 / 5"
+        },
+        {
+          "value": "7.8_5.4",
+          "label": "8 / 4"
+        }
+      ],
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_usetextastitle",
+      "label": "Use text 1 as title(H2 html tag)",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "header",
+      "content": "Mobile screen",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "block_text2",
+      "label": "Text 2(Optional)",
+      "default": "Text 2",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_correction",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "label": "Corrent text 2 position by vertical",
+      "default": 0,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_fontweighttext2",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight text",
+      "default": 400,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_fontsizetext2",
+      "min": 14,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text",
+      "default": 16,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_lineheighttext2",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text",
+      "default": 24,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_fontsizetext_mobile2",
+      "min": 14,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text",
+      "default": 16,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "range",
+      "id": "block_lineheighttext_mobile2",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text",
+      "default": 24,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:text"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:image"
+    },
+    {
+      "type": "header",
+      "content": "Mobile screen",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_btnurl",
+      "label": "Button link",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_btnname",
+      "label": "Button Name",
+      "default": "READ MORE",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_contentalign",
+      "label": "Content align",
+      "info": "Work with \"Column width\"",
+      "default": "justify-content-center",
+      "options": [
+        {
+          "value": "justify-content-start",
+          "label": "Left"
+        },
+        {
+          "value": "justify-content-center",
+          "label": "Center"
+        },
+        {
+          "value": "justify-content-end",
+          "label": "Right"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "header",
+      "content": "Mobile screen",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_underlinebydefault",
+      "label": "Underline by default",
+      "default": true,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:buttonlink"
+    },
+    {
+      "type": "header",
+      "content": "Mobile screen",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "block_color",
+      "label": "Base color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:buttonlink"
+    },
+    {
+      "type": "color",
+      "id": "block_color_a",
+      "label": "Hover color",
+      "default": "#777777",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:buttonlink"
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled",
+    "repeating range fields may not be properly handled",
+    "repeating image fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_contentalign' -%}
+{%- assign atb_contentalign = val -%}
+{%- include 'atb-render' field:'atb_textalign' -%}
+{%- assign atb_textalign = val -%}
+{%- include 'atb-render' field:'atb_lgsize' -%}
+{%- assign atb_lgsize = val -%}
+{%- include 'atb-render' field:'atb_mdsize' -%}
+{%- assign atb_mdsize = val -%}
+{%- include 'atb-render' field:'atb_colortext1' -%}
+{%- assign atb_colortext1 = val -%}
+{%- include 'atb-render' field:'atb_colortext2' -%}
+{%- assign atb_colortext2 = val -%}
+{%- include 'atb-render' field:'atb_bg_color' -%}
+{%- assign atb_bg_color = val -%}
+{%- include 'atb-render' field:'atb_cbtntext' -%}
+{%- assign atb_cbtntext = val -%}
+{%- include 'atb-render' field:'atb_bg_color_a' -%}
+{%- assign atb_bg_color_a = val -%}
+{%- include 'atb-render' field:'atb_cbtntext_a' -%}
+{%- assign atb_cbtntext_a = val -%}
+{%- include 'atb-render' field:'atb_btn_custom_styles' -%}
+{%- assign atb_btn_custom_styles = val -%}
+{%- include 'atb-render' field:'atb_btn_custom_styles_hover' -%}
+{%- assign atb_btn_custom_styles_hover = val -%}
+{%- include 'atb-render' field:'atb_usebgcolor' -%}
+{%- assign atb_usebgcolor = val -%}
+{%- include 'atb-render' field:'atb_bgco' -%}
+{%- assign atb_bgco = val -%}
+{%- include 'atb-render' field:'atb_bgdepad' -%}
+{%- assign atb_bgdepad = val -%}
+{%- include 'atb-render' field:'atb_bgdepad_2' -%}
+{%- assign atb_bgdepad_2 = val -%}
+{%- include 'atb-render' field:'atb_bgmopad' -%}
+{%- assign atb_bgmopad = val -%}
+{%- include 'atb-render' field:'atb_bgmopad_2' -%}
+{%- assign atb_bgmopad_2 = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_showbgimage' -%}
+{%- assign atb_showbgimage = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_imagealign' -%}
+{%- assign atb_imagealign = val -%}
+{%- include 'atb-render' field:'atb_imagesize' -%}
+{%- assign atb_imagesize = val -%}
+{%- include 'atb-render' field:'atb_usemiheight' -%}
+{%- assign atb_usemiheight = val -%}
+{%- include 'atb-render' field:'atb_backgroundminheight3' -%}
+{%- assign atb_backgroundminheight3 = val -%}
+{%- include 'atb-render' field:'atb_backgroundminheight2' -%}
+{%- assign atb_backgroundminheight2 = val -%}
+{%- include 'atb-render' field:'atb_backgroundminheight1' -%}
+{%- assign atb_backgroundminheight1 = val -%}
+{%- include 'atb-render' field:'block_type' -%}
+{%- assign block_type = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_text' -%}
+{%- assign block_text = val -%}
+{%- include 'atb-render' field:'block_textalign' -%}
+{%- assign block_textalign = val -%}
+{%- include 'atb-render' field:'block_fontweighttext' -%}
+{%- assign block_fontweighttext = val -%}
+{%- include 'atb-render' field:'block_toppadding' -%}
+{%- assign block_toppadding = val -%}
+{%- include 'atb-render' field:'block_toppaddingmulti' -%}
+{%- assign block_toppaddingmulti = val -%}
+{%- include 'atb-render' field:'block_fontsizetext' -%}
+{%- assign block_fontsizetext = val -%}
+{%- include 'atb-render' field:'block_lineheighttext' -%}
+{%- assign block_lineheighttext = val -%}
+{%- include 'atb-render' field:'block_toppadding_mobile' -%}
+{%- assign block_toppadding_mobile = val -%}
+{%- include 'atb-render' field:'block_fontsizetext_mobile' -%}
+{%- assign block_fontsizetext_mobile = val -%}
+{%- include 'atb-render' field:'block_lineheighttext_mobile' -%}
+{%- assign block_lineheighttext_mobile = val -%}
+{%- include 'atb-render' field:'block_usetextcolumns' -%}
+{%- assign block_usetextcolumns = val -%}
+{%- include 'atb-render' field:'block_columnswidth' -%}
+{%- assign block_columnswidth = val -%}
+{%- include 'atb-render' field:'block_usetextastitle' -%}
+{%- assign block_usetextastitle = val -%}
+{%- include 'atb-render' field:'block_text2' -%}
+{%- assign block_text2 = val -%}
+{%- include 'atb-render' field:'block_correction' -%}
+{%- assign block_correction = val -%}
+{%- include 'atb-render' field:'block_fontweighttext2' -%}
+{%- assign block_fontweighttext2 = val -%}
+{%- include 'atb-render' field:'block_fontsizetext2' -%}
+{%- assign block_fontsizetext2 = val -%}
+{%- include 'atb-render' field:'block_lineheighttext2' -%}
+{%- assign block_lineheighttext2 = val -%}
+{%- include 'atb-render' field:'block_fontsizetext_mobile2' -%}
+{%- assign block_fontsizetext_mobile2 = val -%}
+{%- include 'atb-render' field:'block_lineheighttext_mobile2' -%}
+{%- assign block_lineheighttext_mobile2 = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_btnurl' -%}
+{%- assign block_btnurl = val -%}
+{%- include 'atb-render' field:'block_btnname' -%}
+{%- assign block_btnname = val -%}
+{%- include 'atb-render' field:'block_contentalign' -%}
+{%- assign block_contentalign = val -%}
+{%- include 'atb-render' field:'block_underlinebydefault' -%}
+{%- assign block_underlinebydefault = val -%}
+{%- include 'atb-render' field:'block_color' -%}
+{%- assign block_color = val -%}
+{%- include 'atb-render' field:'block_color_a' -%}
+{%- assign block_color_a = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_usebgcolor == blank -%}
+{%- assign atb_usebgcolor = false -%}
+{%- else -%}
+{%- assign atb_usebgcolor = true -%}
+{%- endif -%}
+{%- if atb_showbgimage == blank -%}
+{%- assign atb_showbgimage = false -%}
+{%- else -%}
+{%- assign atb_showbgimage = true -%}
+{%- endif -%}
+{%- if atb_usemiheight == blank -%}
+{%- assign atb_usemiheight = false -%}
+{%- else -%}
+{%- assign atb_usemiheight = true -%}
+{%- endif -%}
+{%- assign atb_lgsize = atb_lgsize | plus: 0 -%}
+{%- assign atb_mdsize = atb_mdsize | plus: 0 -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+{%- assign item = section.settings -%}
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent tpivsection{{ section_id }}">
+  {% if item.usebgcolor %}<div{% if item.showbgimage %} style="background-image: url({{ item.image | img_url: '2048x' }});"{% endif %}>{% endif %}
+  <div class="container{% if item.fullwidth %}-fluid{% endif %}">
+    <div class="row {{ item.contentalign }}">
+      <div class="col-md-{{ item.mdsize }} col-lg-{{ item.lgsize }} text-{{ item.textalign }}">
+        <div class="tt-layout-box03">
+          {%- for block0 in blocks -%}
+{%- if block_underlinebydefault[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_usetextastitle[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_usetextcolumns[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_range13 = block_lineheighttext_mobile2[forloop.index0] | plus: 0 -%}
+{%- assign my_range12 = block_fontsizetext_mobile2[forloop.index0] | plus: 0 -%}
+{%- assign my_range11 = block_lineheighttext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range10 = block_fontsizetext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range9 = block_fontweighttext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range8 = block_correction[forloop.index0] | plus: 0 -%}
+{%- assign my_range7 = block_lineheighttext_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range6 = block_fontsizetext_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range5 = block_toppadding_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range4 = block_lineheighttext[forloop.index0] | plus: 0 -%}
+{%- assign my_range3 = block_fontsizetext[forloop.index0] | plus: 0 -%}
+{%- assign my_range2 = block_toppaddingmulti[forloop.index0] | plus: 0 -%}
+{%- assign my_range1 = block_toppadding[forloop.index0] | plus: 0 -%}
+{%- assign my_range0 = block_fontweighttext[forloop.index0] | plus: 0 -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+          {%- assign b_i = block_-[forloop.index0]%}
+          {%- case block_type[forloop.index0] -%}
+          {%- when 'image' -%}
+          <div class="blid{{ blocks[forloop.index0] }} respimgsize">
+            {%- if b_i.image == blank -%}{%- include "get_svg" type:'image' size:'1170x450px' -%}
+            {%- else -%}
+            <img class="lazyload"
+                 data-mainimage="{{ b_i.image | img_url: '100x100' | replace: '100x100', 'respimgsize' }}"
+                 alt="{{ b_i.image.alt }}">
+            {%- endif -%}
+          </div>
+          {%- when 'title' -%}
+          <h2 class="tt-title blid{{ blocks[forloop.index0] }}{% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %}">{{ b_i.text }}</h2>
+          {%- when 'text' -%}
+          {%- if b_i.usetextcolumns -%}
+          <div class="row{% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %} blid{{ blocks[forloop.index0] }}">
+            <div class="col-12 col-sm-{{ b_i.columnswidth | split: "_" | first | split: "." | first }} col-lg-{{ b_i.columnswidth | split: "_" | first | split: "." | last }} blidfirstcol">
+              {% if b_i.usetextastitle %}<h2 class="customtitle">{% endif %}
+              {{ b_i.text }}
+              {% if b_i.usetextastitle %}</h2>{% endif %}
+            </div>
+            <div class="col-12 col-sm-{{ b_i.columnswidth | split: "_" | last | split: "." | first }} col-lg-{{ b_i.columnswidth | split: "_" | last | split: "." | last }} blidsecondcol">
+              {{ b_i.text2 }}
+            </div>
+          </div>
+          {%- else -%}
+          <div class="blid{{ blocks[forloop.index0] }}{% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %}">{{ b_i.text }}</div>
+          {%- endif -%}
+          {%- when 'button' -%}
+          {% if b_i.columnswidth != 'none' %}
+          <div class="row {% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %} blid{{ blocks[forloop.index0] }} {{ b_i.contentalign }}">
+            <div class="col-12 col-sm-{{ b_i.columnswidth | split: "." | first }} col-lg-{{ b_i.columnswidth | split: "." | last }}">
+              <a href="{{ b_i.btnurl }}"
+                 class="btn"
+                 style="background:{{ item.bg_color }}; color:{{ item.cbtntext }};" data-bgc="{{ item.bg_color }}" data-abgc="{{ item.bg_color_a }}" data-c="{{ item.cbtntext }}" data-ac="{{ item.cbtntext_a }}" data-hovercolors
+                 >{{ b_i.btnname }}</a>
+            </div>
+          </div>
+          {% else %}
+          <div class="{% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %} blid{{ blocks[forloop.index0] }}">
+          <a href="{{ b_i.btnurl }}"
+             class="btn"
+             style="background:{{ item.bg_color }}; color:{{ item.cbtntext }};" data-bgc="{{ item.bg_color }}" data-abgc="{{ item.bg_color_a }}" data-c="{{ item.cbtntext }}" data-ac="{{ item.cbtntext_a }}" data-hovercolors
+             >{{ b_i.btnname }}</a>
+          </div>
+          {% endif %}
+          {%- when 'buttonlink' -%}
+          {% if b_i.columnswidth != 'none' %}
+          <div class="row {% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %} blid{{ blocks[forloop.index0] }} {{ b_i.contentalign }}">
+            <div class="col-12 col-sm-{{ b_i.columnswidth | split: "." | first }} col-lg-{{ b_i.columnswidth | split: "." | last }}">
+              <a href="{{ b_i.btnurl }}"
+                 class="hover-underline{% if b_i.underlinebydefault %} underlinebydefault{% endif %}"
+                 >{{ b_i.btnname }}</a>
+            </div>
+          </div>
+          {% else %}
+          <div class="{% if b_i.textalign != "default" %} text-{{ b_i.textalign }}{% endif %} blid{{ blocks[forloop.index0] }}">
+          <a href="{{ b_i.btnurl }}"
+             class="hover-underline{% if b_i.underlinebydefault %} underlinebydefault{% endif %}"
+             >{{ b_i.btnname }}</a>
+          </div>
+          {% endif %}
+          {%- endcase -%}
+
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if item.usebgcolor %}</div>{% endif %}
+</div>
+
+<style>
+  {% if item.usebgcolor %}
+  .tpivsection{{ section_id }} > div{
+    background-color: {{ item.bgco }};
+    background-repeat: no-repeat;
+    background-size: {{ item.imagesize }};
+    background-position: {{ item.imagealign }};
+  }
+  
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} > div{
+      padding-top: {{ item.bgdepad }}px;
+      padding-bottom: {{ item.bgdepad_2 }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} > div{
+      padding-top: {{ item.bgmopad }}px;
+      padding-bottom: {{ item.bgmopad_2 }}px;
+    }
+  }
+  {% if item.usemiheight %}
+  @media (min-width: 791px){
+    .tpivsection{{ section_id }} > div > div > .row{
+      align-items: center;
+      min-height: {{ item.backgroundminheight2 }}px;
+    }
+  }
+  @media (min-width: 1200px){
+    .tpivsection{{ section_id }} > div > div > .row{
+      align-items: center;
+      min-height: {{ item.backgroundminheight3 }}px;
+    }
+  }
+  @media (max-width: 790px){
+    .tpivsection{{ section_id }} > div > div > .row{
+      align-items: center;
+      min-height: {{ item.backgroundminheight1 }}px;
+    }
+  }
+  {% endif %}
+
+  {% endif %}
+  
+  .tpivsection{{ section_id }} .tt-title,
+  .tpivsection{{ section_id }} .customtitle{
+    color: {{ item.colortext1 }};
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03{
+    color: {{ item.colortext2 }};
+  }
+  
+  {%- for block0 in blocks -%}
+{%- if block_underlinebydefault[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_usetextastitle[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_usetextcolumns[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_range13 = block_lineheighttext_mobile2[forloop.index0] | plus: 0 -%}
+{%- assign my_range12 = block_fontsizetext_mobile2[forloop.index0] | plus: 0 -%}
+{%- assign my_range11 = block_lineheighttext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range10 = block_fontsizetext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range9 = block_fontweighttext2[forloop.index0] | plus: 0 -%}
+{%- assign my_range8 = block_correction[forloop.index0] | plus: 0 -%}
+{%- assign my_range7 = block_lineheighttext_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range6 = block_fontsizetext_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range5 = block_toppadding_mobile[forloop.index0] | plus: 0 -%}
+{%- assign my_range4 = block_lineheighttext[forloop.index0] | plus: 0 -%}
+{%- assign my_range3 = block_fontsizetext[forloop.index0] | plus: 0 -%}
+{%- assign my_range2 = block_toppaddingmulti[forloop.index0] | plus: 0 -%}
+{%- assign my_range1 = block_toppadding[forloop.index0] | plus: 0 -%}
+{%- assign my_range0 = block_fontweighttext[forloop.index0] | plus: 0 -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+  {%- assign b_i = block_-[forloop.index0]%}
+  {%- case block_type[forloop.index0] -%}
+  {%- when 'image' -%}
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding_mobile }}px;
+    }
+  }
+  {%- when 'title' -%}
+  .tpivsection{{ section_id }} .tt-title.blid{{ blocks[forloop.index0] }}{
+    font-weight: {{ b_i.fontweighttext }};
+  }
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .tt-title.blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding | times: b_i.toppaddingmulti }}px;
+      font-size: {{ b_i.fontsizetext }}px;
+      line-height: {{ b_i.lineheighttext }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .tt-title.blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding_mobile }}px;
+      font-size: {{ b_i.fontsizetext_mobile }}px;
+      line-height: {{ b_i.lineheighttext_mobile }}px;
+    }
+  }
+  {%- when 'text' -%}
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }},
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} h2.customtitle{
+    font-weight: {{ b_i.fontweighttext }};
+  }
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding | times: b_i.toppaddingmulti }}px;
+    }
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }},
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} h2.customtitle{
+      font-size: {{ b_i.fontsizetext }}px;
+      line-height: {{ b_i.lineheighttext }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding_mobile }}px;
+    }
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }},
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} h2.customtitle{
+      font-size: {{ b_i.fontsizetext_mobile }}px;
+      line-height: {{ b_i.lineheighttext_mobile }}px;
+    }
+  }
+  
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} .blidsecondcol{
+    font-weight: {{ b_i.fontweighttext2 }};
+  }
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} .blidsecondcol{
+      font-size: {{ b_i.fontsizetext2 }}px;
+      line-height: {{ b_i.lineheighttext2 }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} .blidsecondcol{
+      font-size: {{ b_i.fontsizetext_mobile2 }}px;
+      line-height: {{ b_i.lineheighttext_mobile2 }}px;
+    }
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} .blidsecondcol{
+    margin-top: {{ b_i.correction }}px;
+  }
+  @media (max-width: 576px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} .blidsecondcol{
+      margin-top: 30px;
+    }
+  }
+  
+  {%- when 'button' -%}
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding_mobile }}px;
+    }
+  }
+  
+  {%- when 'buttonlink' -%}
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} a{
+    font-size: {{ b_i.fontsizetext }}px;
+    line-height: {{ b_i.fontsizetext }}px;
+    font-weight: {{ b_i.fontweighttext }};
+    color: {{ b_i.color }};
+    -webkit-transition: color .2s ease-out;
+    transition: color .2s ease-out;
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} a.hover-underline:before{
+    background: {{ b_i.color_a }};
+    bottom: -1px;
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} a.hover-underline.underlinebydefault:before{
+    width: 100%;
+    background: {{ b_i.color }};
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} a:hover{
+    color: {{ b_i.color_a }};
+  }
+  .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }} a.hover-underline.underlinebydefault:hover:before{
+    width: 0%;
+    background: {{ b_i.color_a }};
+  }
+  
+  @media (min-width: 1025px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpivsection{{ section_id }} .tt-layout-box03 .blid{{ blocks[forloop.index0] }}{
+      margin-top: {{ b_i.toppadding_mobile }}px;
+    }
+  }
+  
+  {%- endcase -%}
+
+  {%- endfor -%}
+  
+  {% if item.btn_custom_styles != '' %}
+  .tpivsection{{ section_id }} .tt-layout-box03 .btn{
+    {{ item.btn_custom_styles }}
+  }
+  {% endif %}
+  {% if item.btn_custom_styles_hover != '' %}
+  .tpivsection{{ section_id }} .tt-layout-box03 .btn:hover{
+    {{ item.btn_custom_styles_hover }}
+  }
+  {% endif %}
+</style>
+
+</section>

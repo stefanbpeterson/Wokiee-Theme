@@ -1,0 +1,818 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Text Plus Image Type 2",
+  "class": "index-section",
+  "id": "index-section-text_plus_image2",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Content",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_showimage",
+      "label": "Show image",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Text 1",
+      "default": "A great about us block helps builds trust between you and your customers.",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Text 2",
+      "default": "The more content you provide about you and your business, the more confident people will be when purchasing from your store.",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Button",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_showbtn",
+      "label": "Show button",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_showbtnwithlink",
+      "label": "Show button as link",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_underlinebydefault",
+      "label": "Underline by default",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_btntext",
+      "label": "Button text",
+      "default": "SHOP NOW",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_btnurl",
+      "label": "Button link",
+      "info": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "button as link size",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_linkfontweight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight link button",
+      "default": 400,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_linkfontsize",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size link button. Desktop",
+      "default": 19,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_linkfontsize_m",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size link button. Mobile",
+      "default": 16,
+      "info": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Button colors. For link is text colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bg_color",
+      "label": "Background color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext",
+      "label": "Text color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bg_color_a",
+      "label": "Background active color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_cbtntext_a",
+      "label": "Text active color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_btn_custom_styles",
+      "label": "Button custom styles",
+      "info": "not for \"Underline by default\""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_btn_custom_styles_hover",
+      "label": "HOVER. Button custom styles",
+      "info": "not for \"Underline by default\""
+    },
+    {
+      "type": "header",
+      "content": "Settings",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_reverse",
+      "label": "Reverse content",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_contentalign",
+      "label": "Content vertical align",
+      "default": "classnoactions",
+      "options": [
+        {
+          "value": "tt-point-v-t",
+          "label": "Top"
+        },
+        {
+          "value": "classnoactions",
+          "label": "Center"
+        },
+        {
+          "value": "tt-point-v-b",
+          "label": "Bottom"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_textalign",
+      "label": "Text align",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Desktop texts size",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_textoffsettop",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "First text correction by top position",
+      "default": 10,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_textoffset",
+      "label": "Texts offset",
+      "default": "60",
+      "info": "integer, in px"
+    },
+    {
+      "type": "range",
+      "id": "atb_fontsizetext1",
+      "min": 14,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text 1",
+      "default": 32,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_lineheighttext1",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text 1",
+      "default": 51,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_fontweighttext1",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight text 1",
+      "default": 700,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_bottompaddingtext1",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Text 1 bottom padding",
+      "default": 25,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_fontsizetext2",
+      "min": 14,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size text 2",
+      "default": 22,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_lineheighttext2",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text 2",
+      "default": 35,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_fontweighttext2",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight text 2",
+      "default": 400,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_buttonpadding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Button padding",
+      "default": 20,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Mobile texts size",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_fontsizetext1_mobile",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text 1 size mobile",
+      "default": 20,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_lineheighttext1_mobile",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text 1 mobile",
+      "default": 28,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_bottompaddingtext1_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Text 1 bottom padding mobile",
+      "default": 25,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_fontsizetext2_mobile",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text 2 size mobile",
+      "default": 16,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_lineheighttext2_mobile",
+      "min": 14,
+      "max": 101,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height text 2 mobile",
+      "default": 24,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_buttonpadding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Button padding mobile",
+      "default": 20,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Background color",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgcolor",
+      "label": "Use background color",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgco",
+      "label": "Background color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_bgdepad",
+      "label": "Vertical top padding desktop",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgdepad_2",
+      "label": "Vertical bottom padding desktop",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgmopad",
+      "label": "Vertical top padding mobile",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "text",
+      "id": "atb_bgmopad_2",
+      "label": "Vertical bottom padding mobile",
+      "default": "80",
+      "info": "integer, in px"
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usemobilepadforimage",
+      "label": "Use mobile background padding for image",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Texts color",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_colortext1",
+      "label": "Text 1 color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_colortext2",
+      "label": "Text 2 color",
+      "default": "#777777",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_showimage' -%}
+{%- assign atb_showimage = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_showbtn' -%}
+{%- assign atb_showbtn = val -%}
+{%- include 'atb-render' field:'atb_showbtnwithlink' -%}
+{%- assign atb_showbtnwithlink = val -%}
+{%- include 'atb-render' field:'atb_underlinebydefault' -%}
+{%- assign atb_underlinebydefault = val -%}
+{%- include 'atb-render' field:'atb_btntext' -%}
+{%- assign atb_btntext = val -%}
+{%- include 'atb-render' field:'atb_btnurl' -%}
+{%- assign atb_btnurl = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_linkfontweight' -%}
+{%- assign atb_linkfontweight = val -%}
+{%- include 'atb-render' field:'atb_linkfontsize' -%}
+{%- assign atb_linkfontsize = val -%}
+{%- include 'atb-render' field:'atb_linkfontsize_m' -%}
+{%- assign atb_linkfontsize_m = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_bg_color' -%}
+{%- assign atb_bg_color = val -%}
+{%- include 'atb-render' field:'atb_cbtntext' -%}
+{%- assign atb_cbtntext = val -%}
+{%- include 'atb-render' field:'atb_bg_color_a' -%}
+{%- assign atb_bg_color_a = val -%}
+{%- include 'atb-render' field:'atb_cbtntext_a' -%}
+{%- assign atb_cbtntext_a = val -%}
+{%- include 'atb-render' field:'atb_btn_custom_styles' -%}
+{%- assign atb_btn_custom_styles = val -%}
+{%- include 'atb-render' field:'atb_btn_custom_styles_hover' -%}
+{%- assign atb_btn_custom_styles_hover = val -%}
+{%- include 'atb-render' field:'atb_reverse' -%}
+{%- assign atb_reverse = val -%}
+{%- include 'atb-render' field:'atb_contentalign' -%}
+{%- assign atb_contentalign = val -%}
+{%- include 'atb-render' field:'atb_textalign' -%}
+{%- assign atb_textalign = val -%}
+{%- include 'atb-render' field:'atb_textoffsettop' -%}
+{%- assign atb_textoffsettop = val -%}
+{%- include 'atb-render' field:'atb_textoffset' -%}
+{%- assign atb_textoffset = val -%}
+{%- include 'atb-render' field:'atb_fontsizetext1' -%}
+{%- assign atb_fontsizetext1 = val -%}
+{%- include 'atb-render' field:'atb_lineheighttext1' -%}
+{%- assign atb_lineheighttext1 = val -%}
+{%- include 'atb-render' field:'atb_fontweighttext1' -%}
+{%- assign atb_fontweighttext1 = val -%}
+{%- include 'atb-render' field:'atb_bottompaddingtext1' -%}
+{%- assign atb_bottompaddingtext1 = val -%}
+{%- include 'atb-render' field:'atb_fontsizetext2' -%}
+{%- assign atb_fontsizetext2 = val -%}
+{%- include 'atb-render' field:'atb_lineheighttext2' -%}
+{%- assign atb_lineheighttext2 = val -%}
+{%- include 'atb-render' field:'atb_fontweighttext2' -%}
+{%- assign atb_fontweighttext2 = val -%}
+{%- include 'atb-render' field:'atb_buttonpadding' -%}
+{%- assign atb_buttonpadding = val -%}
+{%- include 'atb-render' field:'atb_fontsizetext1_mobile' -%}
+{%- assign atb_fontsizetext1_mobile = val -%}
+{%- include 'atb-render' field:'atb_lineheighttext1_mobile' -%}
+{%- assign atb_lineheighttext1_mobile = val -%}
+{%- include 'atb-render' field:'atb_bottompaddingtext1_mobile' -%}
+{%- assign atb_bottompaddingtext1_mobile = val -%}
+{%- include 'atb-render' field:'atb_fontsizetext2_mobile' -%}
+{%- assign atb_fontsizetext2_mobile = val -%}
+{%- include 'atb-render' field:'atb_lineheighttext2_mobile' -%}
+{%- assign atb_lineheighttext2_mobile = val -%}
+{%- include 'atb-render' field:'atb_buttonpadding_mobile' -%}
+{%- assign atb_buttonpadding_mobile = val -%}
+{%- include 'atb-render' field:'atb_usebgcolor' -%}
+{%- assign atb_usebgcolor = val -%}
+{%- include 'atb-render' field:'atb_bgco' -%}
+{%- assign atb_bgco = val -%}
+{%- include 'atb-render' field:'atb_bgdepad' -%}
+{%- assign atb_bgdepad = val -%}
+{%- include 'atb-render' field:'atb_bgdepad_2' -%}
+{%- assign atb_bgdepad_2 = val -%}
+{%- include 'atb-render' field:'atb_bgmopad' -%}
+{%- assign atb_bgmopad = val -%}
+{%- include 'atb-render' field:'atb_bgmopad_2' -%}
+{%- assign atb_bgmopad_2 = val -%}
+{%- include 'atb-render' field:'atb_usemobilepadforimage' -%}
+{%- assign atb_usemobilepadforimage = val -%}
+{%- include 'atb-render' field:'atb_colortext1' -%}
+{%- assign atb_colortext1 = val -%}
+{%- include 'atb-render' field:'atb_colortext2' -%}
+{%- assign atb_colortext2 = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_showimage == blank -%}
+{%- assign atb_showimage = false -%}
+{%- else -%}
+{%- assign atb_showimage = true -%}
+{%- endif -%}
+{%- if atb_showbtn == blank -%}
+{%- assign atb_showbtn = false -%}
+{%- else -%}
+{%- assign atb_showbtn = true -%}
+{%- endif -%}
+{%- if atb_showbtnwithlink == blank -%}
+{%- assign atb_showbtnwithlink = false -%}
+{%- else -%}
+{%- assign atb_showbtnwithlink = true -%}
+{%- endif -%}
+{%- if atb_underlinebydefault == blank -%}
+{%- assign atb_underlinebydefault = false -%}
+{%- else -%}
+{%- assign atb_underlinebydefault = true -%}
+{%- endif -%}
+{%- if atb_reverse == blank -%}
+{%- assign atb_reverse = false -%}
+{%- else -%}
+{%- assign atb_reverse = true -%}
+{%- endif -%}
+{%- if atb_usebgcolor == blank -%}
+{%- assign atb_usebgcolor = false -%}
+{%- else -%}
+{%- assign atb_usebgcolor = true -%}
+{%- endif -%}
+{%- if atb_usemobilepadforimage == blank -%}
+{%- assign atb_usemobilepadforimage = false -%}
+{%- else -%}
+{%- assign atb_usemobilepadforimage = true -%}
+{%- endif -%}
+{%- assign atb_linkfontweight = atb_linkfontweight | plus: 0 -%}
+{%- assign atb_linkfontsize = atb_linkfontsize | plus: 0 -%}
+{%- assign atb_linkfontsize_m = atb_linkfontsize_m | plus: 0 -%}
+{%- assign atb_textoffsettop = atb_textoffsettop | plus: 0 -%}
+{%- assign atb_fontsizetext1 = atb_fontsizetext1 | plus: 0 -%}
+{%- assign atb_lineheighttext1 = atb_lineheighttext1 | plus: 0 -%}
+{%- assign atb_fontweighttext1 = atb_fontweighttext1 | plus: 0 -%}
+{%- assign atb_bottompaddingtext1 = atb_bottompaddingtext1 | plus: 0 -%}
+{%- assign atb_fontsizetext2 = atb_fontsizetext2 | plus: 0 -%}
+{%- assign atb_lineheighttext2 = atb_lineheighttext2 | plus: 0 -%}
+{%- assign atb_fontweighttext2 = atb_fontweighttext2 | plus: 0 -%}
+{%- assign atb_buttonpadding = atb_buttonpadding | plus: 0 -%}
+{%- assign atb_fontsizetext1_mobile = atb_fontsizetext1_mobile | plus: 0 -%}
+{%- assign atb_lineheighttext1_mobile = atb_lineheighttext1_mobile | plus: 0 -%}
+{%- assign atb_bottompaddingtext1_mobile = atb_bottompaddingtext1_mobile | plus: 0 -%}
+{%- assign atb_fontsizetext2_mobile = atb_fontsizetext2_mobile | plus: 0 -%}
+{%- assign atb_lineheighttext2_mobile = atb_lineheighttext2_mobile | plus: 0 -%}
+{%- assign atb_buttonpadding_mobile = atb_buttonpadding_mobile | plus: 0 -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent tpi2section{{ section_id }}">
+  {% if item.usebgcolor %}<div class="layout-box02-wrapper"{% if item.usemobilepadforimage %} data-mobiele-indent="180"{% endif %}>{% endif %}
+    <div class="container{% if item.fullwidth %}-fluid{% endif %}">
+      <div class="row tt-layout-box02{% if item.reverse %} flex-row-reverse{% endif %} {{ item.contentalign }}">
+        <div class="col-img col-md-6 respimgsize">
+          {% if item.showimage %}
+          {%- if item.image == blank -%}{%- include "get_svg" type:'image' size:'580x400' -%}
+          {%- else -%}
+          <img class="lazyload"
+               data-mainimage="{{ item.image | img_url: '100x100' | replace: '100x100', 'respimgsize' }}"
+               alt="{{ item.image.alt }}">
+          {%- endif -%}
+          {% endif %}
+        </div>
+        <div class="col-description col-md-6 text-{{ item.textalign }}">
+          <div class="description-indent">
+            {%- if item.text1 != "" -%}<h6 class="tt-title">{{ item.text1 }}</h6>{%- endif -%}
+            {%- if item.text2 != "" -%}<p>{{ item.text2 }}</p>{%- endif -%}
+            {%- if item.showbtn -%}
+            <p>
+              {%- if item.showbtnwithlink -%}
+              <a href="{{ item.btnurl }}"
+                 class="tt-custom-link{% if item.underlinebydefault %} underlinebydefault{% endif %}"
+                 >{{ item.btntext }}</a>
+              {%- else -%}
+              <a href="{{ item.btnurl }}"
+                 class="btn"
+                 style="background:{{ item.bg_color }}; color:{{ item.cbtntext }};" data-bgc="{{ item.bg_color }}" data-abgc="{{ item.bg_color_a }}" data-c="{{ item.cbtntext }}" data-ac="{{ item.cbtntext_a }}" data-hovercolors
+                 >{{ item.btntext }}</a>
+              {%- endif -%}
+            </p>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% if item.usebgcolor %}</div>{% endif %}
+</div>
+
+<style>
+  .tpi2section{{ section_id }} .col-description .description-indent{
+    margin-top: {{ item.textoffsettop }}px;
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .col-description{
+    font-weight: {{ item.fontweighttext2 }};
+    color: {{ item.colortext2 }};
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-title{
+    font-weight: {{ item.fontweighttext1 }};
+    color: {{ item.colortext1 }};
+  }
+  
+  .tpi2section{{ section_id }} .tt-layout-box02 .tt-custom-link {
+    color: {{ item.cbtntext }};
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .tt-custom-link:before {
+    background-color: {{ item.cbtntext_a }};
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .tt-custom-link:hover {
+    color: {{ item.cbtntext_a }};
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .tt-custom-link.underlinebydefault:before{
+    width: 100%;
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .tt-custom-link.underlinebydefault:hover:before{
+    width: 0%;
+  }
+  
+  @media (min-width: 1025px){
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description{
+      font-size: {{ item.fontsizetext2 }}px;
+      line-height: {{ item.lineheighttext2 }}px;
+    }
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-title{
+      font-size: {{ item.fontsizetext1 }}px;
+      line-height: {{ item.lineheighttext1 }}px;
+      padding: 0 0 {{ item.bottompaddingtext1 }}px 0;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description{
+      font-size: {{ item.fontsizetext2_mobile }}px;
+      line-height: {{ item.lineheighttext2_mobile }}px;
+    }
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-title{
+      font-size: {{ item.fontsizetext1_mobile }}px;
+      line-height: {{ item.lineheighttext1_mobile }}px;
+      padding-bottom: {{ item.bottompaddingtext1_mobile }}px;
+    }
+  }
+  .tpi2section{{ section_id }} .layout-box02-wrapper{
+    background-color: {{ item.bgco }};
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02:not(.flex-row-reverse) .col-description{
+    padding-left: {{ item.textoffset }}px;
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02.flex-row-reverse .col-description:last-child{
+    padding-right: {{ item.textoffset }}px;
+  }
+  {% if item.btn_custom_styles != '' %}
+  .tpi2section{{ section_id }} .tt-layout-box02 .col-description .btn{
+    {{ item.btn_custom_styles }}
+  }
+  {% endif %}
+  {% if item.btn_custom_styles_hover != '' %}
+  .tpi2section{{ section_id }} .tt-layout-box02 .col-description .btn:hover{
+    {{ item.btn_custom_styles_hover }}
+  }
+  {% endif %}
+  @media (min-width: 1025px){
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .btn,
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-custom-link{
+      margin-top: {{ item.buttonpadding }}px;
+    }
+    .tpi2section{{ section_id }} .layout-box02-wrapper{
+      padding-top: {{ item.bgdepad }}px;
+      padding-bottom: {{ item.bgdepad_2 }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .btn,
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-custom-link{
+      margin-top: {{ item.buttonpadding_mobile }}px;
+    }
+    .tpi2section{{ section_id }} .layout-box02-wrapper{
+      padding-top: {{ item.bgmopad }}px;
+      padding-bottom: {{ item.bgmopad_2 }}px;
+    }
+  }
+  .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-custom-link {
+    font-size: {{ item.linkfontsize }}px;
+    font-weight: {{ item.linkfontweight }};
+  }
+  @media (max-width: 790px){
+    .tpi2section{{ section_id }} .tt-layout-box02 .col-description .tt-custom-link {
+      font-size: {{ item.linkfontsize_m }}px;
+    }
+  }
+
+</style>
+
+</section>

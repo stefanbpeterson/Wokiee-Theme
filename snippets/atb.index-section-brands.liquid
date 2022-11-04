@@ -1,0 +1,264 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Brands list",
+  "class": "index-section",
+  "id": "index-section-brands",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Title",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_title",
+      "label": "Show title",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_title_to_left",
+      "label": "Title to left",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "POPULAR",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text2",
+      "label": "Description",
+      "default": "CLOTHING BRANDS",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_toshow",
+      "label": "Products In Row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "7",
+          "label": "7"
+        }
+      ],
+      "default": "6",
+      "info": "For screen size > 1024"
+    },
+    {
+      "type": "select",
+      "id": "atb_step",
+      "label": "Slides To Scroll",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "7",
+          "label": "7"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_module_autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        }
+      ],
+      "default": "7000",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_link",
+      "label": "Link",
+      "info": "Optional",
+      "repeatable": "Image"
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_show_title' -%}
+{%- assign atb_show_title = val -%}
+{%- include 'atb-render' field:'atb_title_to_left' -%}
+{%- assign atb_title_to_left = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_text2' -%}
+{%- assign atb_text2 = val -%}
+{%- include 'atb-render' field:'atb_toshow' -%}
+{%- assign atb_toshow = val -%}
+{%- include 'atb-render' field:'atb_step' -%}
+{%- assign atb_step = val -%}
+{%- include 'atb-render' field:'atb_module_autoplay' -%}
+{%- assign atb_module_autoplay = val -%}
+{%- include 'atb-render' field:'atb_delay_time' -%}
+{%- assign atb_delay_time = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_link' -%}
+{%- assign block_link = val -%}
+{%- if atb_show_title == blank -%}
+{%- assign atb_show_title = false -%}
+{%- else -%}
+{%- assign atb_show_title = true -%}
+{%- endif -%}
+{%- if atb_title_to_left == blank -%}
+{%- assign atb_title_to_left = false -%}
+{%- else -%}
+{%- assign atb_title_to_left = true -%}
+{%- endif -%}
+{%- if atb_module_autoplay == blank -%}
+{%- assign atb_module_autoplay = false -%}
+{%- else -%}
+{%- assign atb_module_autoplay = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+<div class="container-indent">
+  <div class="container" data-sectionname="index_brands">
+    {%- if item.show_title -%}
+    <div class="tt-block-title{% if item.title_to_left %} text-left{% endif %}">
+      <h2 class="tt-title">{{ item.text1 }}</h2>
+      {%- unless item.text2 == '' -%}<div class="tt-description">{{ item.text2 }}</div>{%- endunless -%}
+    </div>
+    {%- endif -%}
+    {%- if blocks.size > 0 -%}
+    <div class="row tt-carousel-brands arrow-location-center-02 tt-arrow-hover slick-animated-show-js" data-slick='{"slidesToShow": {{ item.toshow }}, "slidesToScroll": {{ item.step }}, "autoplay": {{ item.module_autoplay }}, "autoplaySpeed": {{ item.delay_time }}}'>
+      {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+      <div {{ block.shopify_attributes }}>
+        <a href="{{ b_i.link }}">
+          {%- if b_i.image != blank -%}{% assign img_url = b_i.image | img_url: 'large' %}
+          {%- else -%}{% assign img_url = 'template_brand.png' | asset_url %}
+          {%- endif -%}
+          <img src="{{ img_url }}" alt="{{ b_i.image.alt }}">
+        </a>
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- else -%}
+    <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+    {%- endif -%}
+  </div>
+</div>
+
+
+</section>

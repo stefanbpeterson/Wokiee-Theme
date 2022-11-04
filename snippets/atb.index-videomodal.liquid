@@ -1,0 +1,133 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Video modal",
+  "class": "index-section",
+  "id": "index-videomodal",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_topoffset",
+      "label": "Top Offset",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth Container",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": "Main image"
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_imageicon",
+      "label": "Icon image",
+      "info": "Png video icon. Size 80x80px"
+    },
+    {
+      "type": "text",
+      "id": "atb_link",
+      "label": "Link",
+      "info": "Example: https://www.youtube.com/embed/-8qK-qKtFoE?autoplay=1"
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_externallink",
+      "label": "Use modal with youtube",
+      "default": true,
+      "info": "Another action is an external link with a new window"
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_topoffset' -%}
+{%- assign atb_topoffset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_imageicon' -%}
+{%- assign atb_imageicon = val -%}
+{%- include 'atb-render' field:'atb_link' -%}
+{%- assign atb_link = val -%}
+{%- include 'atb-render' field:'atb_externallink' -%}
+{%- assign atb_externallink = val -%}
+{%- if atb_topoffset == blank -%}
+{%- assign atb_topoffset = false -%}
+{%- else -%}
+{%- assign atb_topoffset = true -%}
+{%- endif -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_externallink == blank -%}
+{%- assign atb_externallink = false -%}
+{%- else -%}
+{%- assign atb_externallink = true -%}
+{%- endif -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign atb_imageicon_key = atb_imageicon| split: '/files/' | last -%}{%- assign atb_imageicon = images[atb_imageicon_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+
+{%- capture info_image_size -%}
+{%- if item.fullwidth -%}
+2048x570px
+{%- else -%}
+1200x570px
+{%- endif -%}
+{%- endcapture -%}
+
+{%- assign img_size = info_image_size | split: 'x' | first | append: 'x' -%}
+
+<div class="container-indent{% unless item.topoffset %} nomargin{% endunless %}">
+  {% if item.fullwidth == false %}<div class="container">{% endif %}
+    {% if item.externallink == false %}<a href="{{ item.link }}" class="videomodalbox" target="_blank">
+    {% else %}<div data-value="{{ item.link }}" class="video-link-product videomodalbox" data-toggle="modal" data-type="youtube" data-target="#modalVideoProduct">
+    {% endif %}
+
+      {%- if item.image == blank -%}{%- include "get_svg" type:'image' size:info_image_size -%}
+      {%- else -%}
+      {%- assign scale_numbers = '_' | append: img_size -%}
+      <img class="videomodalbox-main"
+           src="{{ item.image | img_url: img_size }}"
+           alt="{{ item.image.alt }}">
+      {%- endif -%}
+      {%- if item.imageicon != blank -%}
+      <img class="videomodalbox-icon"
+           src="{{ item.imageicon | img_url: '100x' }}"
+           alt="{{ item.imageicon.alt }}">
+      {%- endif -%}
+    
+    {% if item.externallink%}</div>
+    {% else %}</a>
+  	{% endif %}
+  {% if item.fullwidth == false %}</div>{% endif %}
+  {% include "modal-video" %}
+</div>
+
+</section>

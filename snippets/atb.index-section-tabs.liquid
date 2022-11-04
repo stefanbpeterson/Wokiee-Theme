@@ -1,0 +1,366 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Tabs Horizontal",
+  "class": "index-section",
+  "max_blocks": 8,
+  "id": "index-section-tabs",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_title",
+      "label": "Show Title",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "WOMEN’S",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block Type",
+      "info": "",
+      "default": "",
+      "options": [
+        {
+          "value": "item",
+          "label": "item"
+        },
+        {
+          "value": "item2",
+          "label": "item2"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "block_tab_name",
+      "label": "Tab Name",
+      "default": "Tab",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "label": "Collection",
+      "id": "block_collection",
+      "type": "collection",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_limit",
+      "label": "Items Length. Integer",
+      "default": "8",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_toshow",
+      "label": "Products In Row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "4",
+      "info": "For screen size > 1024",
+      "repeatable": "block"
+    },
+    {
+      "type": "select",
+      "id": "block_step",
+      "label": "Slides To Scroll",
+      "default": "1",
+      "info": "Max = Products In Row",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "repeatable": "block",
+      "conditional": "block_type:item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_module_autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item"
+    },
+    {
+      "type": "select",
+      "id": "block_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        }
+      ],
+      "default": "7000",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_showbtn",
+      "label": "Show Button",
+      "default": true,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item2"
+    },
+    {
+      "type": "textarea",
+      "id": "block_btnname",
+      "label": "Button Name",
+      "default": "SEE ALL",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:item2"
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_show_title' -%}
+{%- assign atb_show_title = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'block_type' -%}
+{%- assign block_type = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_tab_name' -%}
+{%- assign block_tab_name = val -%}
+{%- include 'atb-render' field:'block_collection' -%}
+{%- assign block_collection = val -%}
+{%- include 'atb-render' field:'block_limit' -%}
+{%- assign block_limit = val -%}
+{%- include 'atb-render' field:'block_toshow' -%}
+{%- assign block_toshow = val -%}
+{%- include 'atb-render' field:'block_step' -%}
+{%- assign block_step = val -%}
+{%- include 'atb-render' field:'block_module_autoplay' -%}
+{%- assign block_module_autoplay = val -%}
+{%- include 'atb-render' field:'block_delay_time' -%}
+{%- assign block_delay_time = val -%}
+{%- include 'atb-render' field:'block_showbtn' -%}
+{%- assign block_showbtn = val -%}
+{%- include 'atb-render' field:'block_btnname' -%}
+{%- assign block_btnname = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_show_title == blank -%}
+{%- assign atb_show_title = false -%}
+{%- else -%}
+{%- assign atb_show_title = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent" data-sectionname="index_horizontaltabs" data-respjs="index_sectiontabs">
+  <div class="container{% if item.fullwidth %}-fluid-custom{% endif %} container-fluid-custom-mobile-padding">
+
+    {% if item.show_title %}<div class="tt-block-title text-left">
+      <h2 class="tt-title">{{ item.text1 }}</h2>
+    </div>{% endif %}
+    {% if item.show_title %}<div class="tt-tab-wrapper">{% endif %}
+
+      <ul class="nav nav-tabs tt-tabs-default" role="tablist">
+        {%- for block0 in blocks -%}
+{%- if block_showbtn[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_module_autoplay[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+        <li class="nav-item">
+          <a href="#{{ section_id }}{{ forloop.index }}" class="nav-link{% if forloop.first %} active{% endif %}" data-toggle="tab" role="tab">{{ block_tab_name[forloop.index0] }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="tab-content">
+        {%- for block0 in blocks -%}
+{%- if block_showbtn[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_module_autoplay[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+        {%- assign name_collection = block_collection[forloop.index0] -%}
+        {%- if name_collection == blank -%}{%- assign name_collection = "all" -%}{%- endif -%}
+        {%- assign collection = collections[name_collection] -%}
+        <div id="{{ section_id }}{{ forloop.index }}" class="tab-pane{% if forloop.first %} active{% endif %}" role="tabpanel" {{ block.shopify_attributes }}>
+          {%- if block_type[forloop.index0] == 'item2' -%}
+          <div class="row tt-layout-product-item">
+
+            <div class="ajaxcontent startajax" data-content="col_{{ collection.handle }}+num_{{ block_limit[forloop.index0]}}+col-lg-{{ block_toshow[forloop.index0] }}"></div>
+
+          </div>
+          {%- if my_checkbox1 -%}
+          <div class="text-center tt_product_showmore">
+            <a href="collections/{{ collection.handle }}" class="btn btn-border">{{ block_btnname[forloop.index0] }}</a>
+          </div>
+          {%- endif -%}
+          {%- else -%}
+          
+          <div class="ajaxcontent startajax slider" data-content="col_{{ collection.handle }}+num_{{ block_limit[forloop.index0] }}+col-lg-{{ block_toshow[forloop.index0] }}+toshow_{{ block_toshow[forloop.index0] }}+slider_true+step_{{ block_step[forloop.index0] }}+autoplay_{{ my_checkbox0 }}+speed_{{ block_delay_time[forloop.index0] }}{% if item.show_title %}+showtitle_{% endif %}"></div>
+          
+          {%- endif -%}
+        </div>
+        {%- endfor -%}
+      </div>
+
+    {%- if item.show_title -%}</div>{%- endif -%}
+  </div>
+</div>
+	
+
+
+</section>

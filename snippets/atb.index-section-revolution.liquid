@@ -1,0 +1,1839 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Revolution Slider",
+  "class": "index-section",
+  "max_blocks": 12,
+  "id": "index-section-revolution",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "[Slider Documantation](//zulijani.com/slider-revolution/documentation/documentation.html)",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_usebanner",
+      "label": "Use banner with slider",
+      "default": "none",
+      "info": "Empty gap used with categorie button from header type 3",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "emptygap",
+          "label": "+ Left empty gap"
+        },
+        {
+          "value": "banner",
+          "label": "+ Banner"
+        },
+        {
+          "value": "emptygap_banner",
+          "label": "Left empty gap + Banner"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "If you are use banner or empty gap please uncheck options fullwidth and fullscreen image!",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_bg_round_r",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Button roundness",
+      "default": 6,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_img_fullscreen",
+      "label": "Fullscreen image size",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Width and height work only in not fullscreen image size",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_customwidthvalue",
+      "label": "Image width. In pixel",
+      "default": "1180",
+      "info": "Disable \"Fullscreen image size\""
+    },
+    {
+      "type": "text",
+      "id": "atb_customheightvalue",
+      "label": "Image height. In pixel",
+      "default": "650",
+      "info": "Disable \"Fullscreen image size\""
+    },
+    {
+      "type": "select",
+      "id": "atb_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "3000",
+          "label": "3 seconds"
+        },
+        {
+          "value": "4000",
+          "label": "4 seconds"
+        },
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        },
+        {
+          "value": "12000",
+          "label": "12 seconds"
+        },
+        {
+          "value": "14000",
+          "label": "14 seconds"
+        },
+        {
+          "value": "16000",
+          "label": "16 seconds"
+        },
+        {
+          "value": "18000",
+          "label": "18 seconds"
+        },
+        {
+          "value": "20000",
+          "label": "20 seconds"
+        },
+        {
+          "value": "22000",
+          "label": "22 seconds"
+        },
+        {
+          "value": "24000",
+          "label": "24 seconds"
+        },
+        {
+          "value": "26000",
+          "label": "26 seconds"
+        },
+        {
+          "value": "28000",
+          "label": "28 seconds"
+        },
+        {
+          "value": "30000",
+          "label": "30 seconds"
+        }
+      ],
+      "default": "16000",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "BANNER MAIN SETTINGS",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_use_same_desc_width",
+      "label": "Use same description width",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_same_width",
+      "label": "Width",
+      "default": "330",
+      "info": "Integer in px"
+    },
+    {
+      "type": "header",
+      "content": "Border",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_border",
+      "label": "Show border",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_border_color",
+      "label": "Border color",
+      "default": "#e9e7e7",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Description background roundness",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_bg_round",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Description background roundness",
+      "default": 6,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block Type",
+      "info": "",
+      "default": "",
+      "options": [
+        {
+          "value": "slider_list",
+          "label": "slider_list"
+        },
+        {
+          "value": "banner_item",
+          "label": "banner_item"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "block"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_banner_link",
+      "label": "Link",
+      "info": "Optional. If button hide and link set = image is link",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_imgpositionvertical",
+      "label": "Image Vertical Position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "header",
+      "content": "Video",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_show_video",
+      "label": "Show Video?",
+      "default": "no",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "yes",
+          "label": "Yes"
+        }
+      ],
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "textarea",
+      "id": "block_video_url",
+      "label": "Paste Video Url",
+      "default": "//cdn.shopify.com/s/files/1/0130/5041/3114/files/Video.mp4?7607761490217037888",
+      "info": "Video type \"mp4\". Use IMAGE for the slide!",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_loopvideo",
+      "label": "Loop video",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_muted_video",
+      "label": "Muted video",
+      "default": true,
+      "info": "Need for autoplay",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_show_infoblock",
+      "label": "Show Info?",
+      "default": "yes",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "yes",
+          "label": "Yes"
+        }
+      ],
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_show_item_button",
+      "label": "Show Button?",
+      "default": "yes",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "aslink",
+          "label": "Show button 1 as link"
+        }
+      ],
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_infoposition",
+      "label": "Info Position",
+      "options": [
+        {
+          "value": "value",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "value",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_infoposition_v",
+      "label": "Info Position Vertical",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "select",
+      "id": "block_textaligment",
+      "label": "Text Aligment",
+      "options": [
+        {
+          "value": "value",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_info_point",
+      "label": "Left and Rigth Offset, integer",
+      "default": "351",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_info_point_v",
+      "label": "Top and Bottom Offset, integer",
+      "default": "-20",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_textbackground_s",
+      "label": "Show texts background",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "range",
+      "id": "block_textbackground_r",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Background roundness",
+      "default": 6,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_textbackground_c",
+      "label": "Background color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_textbackground_a",
+      "label": "Background opacity",
+      "default": "80",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text1",
+      "label": "Text 1",
+      "default": "Ready To",
+      "info": "Empty field delete text",
+      "repeatable": "block"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text2",
+      "label": "Text 2",
+      "default": "Use Unique<br>Demos",
+      "info": " = new string. Empty field delete text",
+      "repeatable": "block"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text3",
+      "label": "Text 3",
+      "default": "Optimized for speed, website that sells",
+      "info": " = new string. Empty field delete text",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_button_title",
+      "label": "Button Name",
+      "default": "SHOP NOW!",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_button_link_size",
+      "label": "Button as link size",
+      "default": "17",
+      "info": "Integer in px",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_button_link_top",
+      "label": "Button as link top offset",
+      "default": "5",
+      "info": "Integer in px",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_button2",
+      "label": "Show button 2",
+      "default": false,
+      "info": "Work with option \"Show Button?\"",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_banner_link2",
+      "label": "Link for button 2",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "text",
+      "id": "block_button_title2",
+      "label": "Button 2 Name",
+      "default": "SHOP NOW!",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_text1",
+      "label": "Text 1 Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_text2",
+      "label": "Text 2 Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_text3",
+      "label": "Text 3 Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_textbase",
+      "label": "Text Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_bgbase",
+      "label": "Background Color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_textactive",
+      "label": "Text Active Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_bgactive",
+      "label": "Background Active Color",
+      "default": "#2267d8",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_textbase2",
+      "label": "Button 2 Text Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_bgbase2",
+      "label": "Button 2 Background Color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_textactive2",
+      "label": "Button 2 Text Active Color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "color",
+      "id": "block_color_bgactive2",
+      "label": "Button 2 Background Active Color",
+      "default": "#2267d8",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "textarea",
+      "id": "block_btn_custom_styles",
+      "label": "Button custom styles",
+      "info": "not for \"Show button 1 as link\"",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "textarea",
+      "id": "block_btn_custom_styles_hover",
+      "label": "HOVER. Button custom styles",
+      "info": "not for \"Show button 1 as link\"",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "paragraph",
+      "content": "Edit variables and content by [Documentation: Options](//zulijani.com/slider-revolution/documentation/documentation.html/documentation.html#options). Create your custom information.",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "block_show_customhtml",
+      "label": "Use Custom Html?",
+      "default": "no",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "yes",
+          "label": "Yes"
+        }
+      ],
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "textarea",
+      "id": "block_code",
+      "label": "Custom Html",
+      "info": "[Documentation: Options](http://zulijani.com/slider-revolution/documentation/documentation.html)",
+      "default": "<img src=\"//cdn.shopify.com/s/files/1/0130/5041/3114/files/home1_01.png?v=1530224249\" alt=\"slide1\" data-bgposition=\"center center\" data-bgfit=\"cover\" data-bgrepeat=\"no-repeat\"><div class=\"tp-caption tp-caption1 lfb stb text-center\" data-x=\"center\" data-y=\"center\" data-hoffset=\"0\" data-voffset=\"-20\" data-speed=\"600\" data-start=\"900\" data-easing=\"Power4.easeOut\" data-endeasing=\"Power4.easeIn\">\n<div class=\"tp-caption1-wd-1\">Multipurpose</div>\n<div class=\"tp-caption1-wd-2\">Premium<br>Shopify Theme</div>\n<div class=\"tp-caption1-wd-3\">30 skins, powerful features, great support, exclusive offer</div>\n<div class=\"tp-caption1-wd-4\"><a href=\"#\" class=\"btn btn-xl\" data-text=\"SHOP NOW!\">SHOP NOW!</a></div>\n</div>",
+      "repeatable": "block",
+      "conditional": "block_type:slider_list"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_use_link",
+      "label": "Use link",
+      "default": true,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_link",
+      "label": "Link",
+      "info": "Optional",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_text_to_left",
+      "label": "Text to left",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "select",
+      "id": "block_description_size",
+      "label": "Description size",
+      "info": "Set unique size for this item",
+      "default": "use_main_size",
+      "options": [
+        {
+          "value": "use_main_size",
+          "label": "Use main size"
+        },
+        {
+          "value": "hide",
+          "label": "Hide"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "big",
+          "label": "Big"
+        }
+      ],
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "select",
+      "id": "block_animation",
+      "label": "Animation",
+      "info": "Set unique animation for this item",
+      "default": "use_main_animation",
+      "options": [
+        {
+          "value": "use_main_animation",
+          "label": "Use main animation"
+        },
+        {
+          "value": "scale",
+          "label": "Scale"
+        },
+        {
+          "value": "simple",
+          "label": "No scale"
+        }
+      ],
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "header",
+      "content": "Image icon",
+      "repeatable": "block",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_icon",
+      "label": "Show image icon",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_icon_image",
+      "label": "Icon image",
+      "info": "Use PNG image. Recommended size 124x38px",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_width",
+      "label": "Icon width. In pixel",
+      "default": "128",
+      "info": "Integer",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtntext",
+      "label": "Base text 1 color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtntext2",
+      "label": "Base text 2 color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtntext",
+      "label": "Active text 1 color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtntext2",
+      "label": "Active text 2 color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtnbg",
+      "label": "Base background color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha",
+      "label": "Base background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtnbg",
+      "label": "Active background color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha_a",
+      "label": "Active background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtnbor",
+      "label": "Base border color",
+      "default": "rgba(0,0,0,0)",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_border_alpha",
+      "label": "Active border opacity",
+      "default": "0",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtnbor",
+      "label": "Active border color",
+      "default": "rgba(0,0,0,0)",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_border_alpha_a",
+      "label": "Active border opacity",
+      "default": "0",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_custom_html",
+      "label": "Show custom html",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "select",
+      "id": "block_custom_html_position",
+      "label": "Custom html position",
+      "default": "normal",
+      "options": [
+        {
+          "value": "tt-point-v-t tt-point-h-l",
+          "label": "Top Left"
+        },
+        {
+          "value": "tt-point-v-t",
+          "label": "Top Center"
+        },
+        {
+          "value": "tt-point-v-t tt-point-h-r",
+          "label": "Top Right"
+        },
+        {
+          "value": "tt-point-h-l",
+          "label": "Left"
+        },
+        {
+          "value": "normal",
+          "label": "Center"
+        },
+        {
+          "value": "tt-point-h-r",
+          "label": "Right"
+        },
+        {
+          "value": "tt-point-v-b tt-point-h-l",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "tt-point-v-b",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "tt-point-v-b tt-point-h-r",
+          "label": "Bottom Right"
+        }
+      ],
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "textarea",
+      "id": "block_custom_html",
+      "label": "Custom html",
+      "info": "Buttons code: Women’sMen’s",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_prem_btn",
+      "label": "Show premade buttons",
+      "default": false,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_prem_btn_1",
+      "label": "Show button 1",
+      "default": true,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_link_1",
+      "label": "Link button 1",
+      "info": "Optional",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_text_b_1",
+      "label": "Text button 1",
+      "default": "SHOP WOMEN",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_show_prem_btn_2",
+      "label": "Show button 2",
+      "default": true,
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_link_2",
+      "label": "Link button 2",
+      "info": "Optional",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_text_b_2",
+      "label": "Text button 2",
+      "default": "SHOP MEN",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtntext_1",
+      "label": "Base text color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtntext_1",
+      "label": "Active text color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtnbg_1",
+      "label": "Base background color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha_1",
+      "label": "Base background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtnbg_1",
+      "label": "Active background color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha_a_1",
+      "label": "Active background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtntext_2",
+      "label": "Base text color",
+      "default": "#191919",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtntext_2",
+      "label": "Active text color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_cbtnbg_2",
+      "label": "Base background color",
+      "default": "#ffffff",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha_2",
+      "label": "Base background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "color",
+      "id": "block_acbtnbg_2",
+      "label": "Active background color",
+      "default": "#2879fe",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:banner_item"
+    },
+    {
+      "type": "text",
+      "id": "block_background_alpha_a_2",
+      "label": "Active background opacity",
+      "default": "90",
+      "info": "Range: 0-100 Percent",
+      "repeatable": "block",
+      "conditional": "block_type:banner_item"
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled",
+    "repeating range fields may not be properly handled",
+    "repeating image fields may not be properly handled",
+    "some fields may be named the same"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_usebanner' -%}
+{%- assign atb_usebanner = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_bg_round_r' -%}
+{%- assign atb_bg_round_r = val -%}
+{%- include 'atb-render' field:'atb_img_fullscreen' -%}
+{%- assign atb_img_fullscreen = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'atb_customwidthvalue' -%}
+{%- assign atb_customwidthvalue = val -%}
+{%- include 'atb-render' field:'atb_customheightvalue' -%}
+{%- assign atb_customheightvalue = val -%}
+{%- include 'atb-render' field:'atb_delay_time' -%}
+{%- assign atb_delay_time = val -%}
+{%- include 'atb-render' field:'atb_use_same_desc_width' -%}
+{%- assign atb_use_same_desc_width = val -%}
+{%- include 'atb-render' field:'atb_same_width' -%}
+{%- assign atb_same_width = val -%}
+{%- include 'atb-render' field:'atb_show_border' -%}
+{%- assign atb_show_border = val -%}
+{%- include 'atb-render' field:'atb_border_color' -%}
+{%- assign atb_border_color = val -%}
+{%- include 'atb-render' field:'atb_bg_round' -%}
+{%- assign atb_bg_round = val -%}
+{%- include 'atb-render' field:'block_type' -%}
+{%- assign block_type = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_banner_link' -%}
+{%- assign block_banner_link = val -%}
+{%- include 'atb-render' field:'block_position' -%}
+{%- assign block_position = val -%}
+{%- include 'atb-render' field:'block_imgpositionvertical' -%}
+{%- assign block_imgpositionvertical = val -%}
+{%- include 'atb-render' field:'block_show_video' -%}
+{%- assign block_show_video = val -%}
+{%- include 'atb-render' field:'block_video_url' -%}
+{%- assign block_video_url = val -%}
+{%- include 'atb-render' field:'block_loopvideo' -%}
+{%- assign block_loopvideo = val -%}
+{%- include 'atb-render' field:'block_muted_video' -%}
+{%- assign block_muted_video = val -%}
+{%- include 'atb-render' field:'block_show_infoblock' -%}
+{%- assign block_show_infoblock = val -%}
+{%- include 'atb-render' field:'block_show_item_button' -%}
+{%- assign block_show_item_button = val -%}
+{%- include 'atb-render' field:'block_infoposition' -%}
+{%- assign block_infoposition = val -%}
+{%- include 'atb-render' field:'block_infoposition_v' -%}
+{%- assign block_infoposition_v = val -%}
+{%- include 'atb-render' field:'block_textaligment' -%}
+{%- assign block_textaligment = val -%}
+{%- include 'atb-render' field:'block_info_point' -%}
+{%- assign block_info_point = val -%}
+{%- include 'atb-render' field:'block_info_point_v' -%}
+{%- assign block_info_point_v = val -%}
+{%- include 'atb-render' field:'block_textbackground_s' -%}
+{%- assign block_textbackground_s = val -%}
+{%- include 'atb-render' field:'block_textbackground_r' -%}
+{%- assign block_textbackground_r = val -%}
+{%- include 'atb-render' field:'block_textbackground_c' -%}
+{%- assign block_textbackground_c = val -%}
+{%- include 'atb-render' field:'block_textbackground_a' -%}
+{%- assign block_textbackground_a = val -%}
+{%- include 'atb-render' field:'block_text1' -%}
+{%- assign block_text1 = val -%}
+{%- include 'atb-render' field:'block_text2' -%}
+{%- assign block_text2 = val -%}
+{%- include 'atb-render' field:'block_text3' -%}
+{%- assign block_text3 = val -%}
+{%- include 'atb-render' field:'block_button_title' -%}
+{%- assign block_button_title = val -%}
+{%- include 'atb-render' field:'block_button_link_size' -%}
+{%- assign block_button_link_size = val -%}
+{%- include 'atb-render' field:'block_button_link_top' -%}
+{%- assign block_button_link_top = val -%}
+{%- include 'atb-render' field:'block_button2' -%}
+{%- assign block_button2 = val -%}
+{%- include 'atb-render' field:'block_banner_link2' -%}
+{%- assign block_banner_link2 = val -%}
+{%- include 'atb-render' field:'block_button_title2' -%}
+{%- assign block_button_title2 = val -%}
+{%- include 'atb-render' field:'block_color_text1' -%}
+{%- assign block_color_text1 = val -%}
+{%- include 'atb-render' field:'block_color_text2' -%}
+{%- assign block_color_text2 = val -%}
+{%- include 'atb-render' field:'block_color_text3' -%}
+{%- assign block_color_text3 = val -%}
+{%- include 'atb-render' field:'block_color_textbase' -%}
+{%- assign block_color_textbase = val -%}
+{%- include 'atb-render' field:'block_color_bgbase' -%}
+{%- assign block_color_bgbase = val -%}
+{%- include 'atb-render' field:'block_color_textactive' -%}
+{%- assign block_color_textactive = val -%}
+{%- include 'atb-render' field:'block_color_bgactive' -%}
+{%- assign block_color_bgactive = val -%}
+{%- include 'atb-render' field:'block_color_textbase2' -%}
+{%- assign block_color_textbase2 = val -%}
+{%- include 'atb-render' field:'block_color_bgbase2' -%}
+{%- assign block_color_bgbase2 = val -%}
+{%- include 'atb-render' field:'block_color_textactive2' -%}
+{%- assign block_color_textactive2 = val -%}
+{%- include 'atb-render' field:'block_color_bgactive2' -%}
+{%- assign block_color_bgactive2 = val -%}
+{%- include 'atb-render' field:'block_btn_custom_styles' -%}
+{%- assign block_btn_custom_styles = val -%}
+{%- include 'atb-render' field:'block_btn_custom_styles_hover' -%}
+{%- assign block_btn_custom_styles_hover = val -%}
+{%- include 'atb-render' field:'undefined' -%}
+{%- assign undefined = val -%}
+{%- include 'atb-render' field:'block_show_customhtml' -%}
+{%- assign block_show_customhtml = val -%}
+{%- include 'atb-render' field:'block_code' -%}
+{%- assign block_code = val -%}
+{%- include 'atb-render' field:'block_use_link' -%}
+{%- assign block_use_link = val -%}
+{%- include 'atb-render' field:'block_link' -%}
+{%- assign block_link = val -%}
+{%- include 'atb-render' field:'block_text_to_left' -%}
+{%- assign block_text_to_left = val -%}
+{%- include 'atb-render' field:'block_description_size' -%}
+{%- assign block_description_size = val -%}
+{%- include 'atb-render' field:'block_animation' -%}
+{%- assign block_animation = val -%}
+{%- include 'atb-render' field:'block_show_icon' -%}
+{%- assign block_show_icon = val -%}
+{%- include 'atb-render' field:'block_icon_image' -%}
+{%- assign block_icon_image = val -%}
+{%- include 'atb-render' field:'block_width' -%}
+{%- assign block_width = val -%}
+{%- include 'atb-render' field:'block_cbtntext' -%}
+{%- assign block_cbtntext = val -%}
+{%- include 'atb-render' field:'block_cbtntext2' -%}
+{%- assign block_cbtntext2 = val -%}
+{%- include 'atb-render' field:'block_acbtntext' -%}
+{%- assign block_acbtntext = val -%}
+{%- include 'atb-render' field:'block_acbtntext2' -%}
+{%- assign block_acbtntext2 = val -%}
+{%- include 'atb-render' field:'block_cbtnbg' -%}
+{%- assign block_cbtnbg = val -%}
+{%- include 'atb-render' field:'block_background_alpha' -%}
+{%- assign block_background_alpha = val -%}
+{%- include 'atb-render' field:'block_acbtnbg' -%}
+{%- assign block_acbtnbg = val -%}
+{%- include 'atb-render' field:'block_background_alpha_a' -%}
+{%- assign block_background_alpha_a = val -%}
+{%- include 'atb-render' field:'block_cbtnbor' -%}
+{%- assign block_cbtnbor = val -%}
+{%- include 'atb-render' field:'block_border_alpha' -%}
+{%- assign block_border_alpha = val -%}
+{%- include 'atb-render' field:'block_acbtnbor' -%}
+{%- assign block_acbtnbor = val -%}
+{%- include 'atb-render' field:'block_border_alpha_a' -%}
+{%- assign block_border_alpha_a = val -%}
+{%- include 'atb-render' field:'block_show_custom_html' -%}
+{%- assign block_show_custom_html = val -%}
+{%- include 'atb-render' field:'block_custom_html_position' -%}
+{%- assign block_custom_html_position = val -%}
+{%- include 'atb-render' field:'block_custom_html' -%}
+{%- assign block_custom_html = val -%}
+{%- include 'atb-render' field:'block_show_prem_btn' -%}
+{%- assign block_show_prem_btn = val -%}
+{%- include 'atb-render' field:'block_show_prem_btn_1' -%}
+{%- assign block_show_prem_btn_1 = val -%}
+{%- include 'atb-render' field:'block_link_1' -%}
+{%- assign block_link_1 = val -%}
+{%- include 'atb-render' field:'block_text_b_1' -%}
+{%- assign block_text_b_1 = val -%}
+{%- include 'atb-render' field:'block_show_prem_btn_2' -%}
+{%- assign block_show_prem_btn_2 = val -%}
+{%- include 'atb-render' field:'block_link_2' -%}
+{%- assign block_link_2 = val -%}
+{%- include 'atb-render' field:'block_text_b_2' -%}
+{%- assign block_text_b_2 = val -%}
+{%- include 'atb-render' field:'block_cbtntext_1' -%}
+{%- assign block_cbtntext_1 = val -%}
+{%- include 'atb-render' field:'block_acbtntext_1' -%}
+{%- assign block_acbtntext_1 = val -%}
+{%- include 'atb-render' field:'block_cbtnbg_1' -%}
+{%- assign block_cbtnbg_1 = val -%}
+{%- include 'atb-render' field:'block_background_alpha_1' -%}
+{%- assign block_background_alpha_1 = val -%}
+{%- include 'atb-render' field:'block_acbtnbg_1' -%}
+{%- assign block_acbtnbg_1 = val -%}
+{%- include 'atb-render' field:'block_background_alpha_a_1' -%}
+{%- assign block_background_alpha_a_1 = val -%}
+{%- include 'atb-render' field:'block_cbtntext_2' -%}
+{%- assign block_cbtntext_2 = val -%}
+{%- include 'atb-render' field:'block_acbtntext_2' -%}
+{%- assign block_acbtntext_2 = val -%}
+{%- include 'atb-render' field:'block_cbtnbg_2' -%}
+{%- assign block_cbtnbg_2 = val -%}
+{%- include 'atb-render' field:'block_background_alpha_2' -%}
+{%- assign block_background_alpha_2 = val -%}
+{%- include 'atb-render' field:'block_acbtnbg_2' -%}
+{%- assign block_acbtnbg_2 = val -%}
+{%- include 'atb-render' field:'block_background_alpha_a_2' -%}
+{%- assign block_background_alpha_a_2 = val -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_img_fullscreen == blank -%}
+{%- assign atb_img_fullscreen = false -%}
+{%- else -%}
+{%- assign atb_img_fullscreen = true -%}
+{%- endif -%}
+{%- if atb_use_same_desc_width == blank -%}
+{%- assign atb_use_same_desc_width = false -%}
+{%- else -%}
+{%- assign atb_use_same_desc_width = true -%}
+{%- endif -%}
+{%- if atb_show_border == blank -%}
+{%- assign atb_show_border = false -%}
+{%- else -%}
+{%- assign atb_show_border = true -%}
+{%- endif -%}
+{%- assign atb_bg_round_r = atb_bg_round_r | plus: 0 -%}
+{%- assign atb_bg_round = atb_bg_round | plus: 0 -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+<div class="{% if atb_top_offset == 'none' %}nomargin {% elsif atb_top_offset == 'small' %}tt-offset-small {% endif %}container-indent" data-sectionname="index_revolution">
+  <div class="container{% if atb_fullwidth %}-fluid{% endif %}">
+    <div class="{% if atb_fullwidth or atb_usebanner != 'none' %}row {% if atb_usebanner != 'none' %}grid-slider justify-content-center{% endif %}{% endif %}">
+      {% if atb_usebanner contains 'emptygap' %}<div class="col-md-3 for-categories-menu tt-hidden-mobile"></div>{% endif %}
+      {% if atb_usebanner != 'none' %}<div class="{% if atb_usebanner contains 'emptygap_' %}col-12 col-md-8 col-lg-6{% elsif atb_usebanner contains 'emptygap' %}col-12 col-md-12 col-lg-9{% else %}col-12 col-md-8 col-lg-9{% endif %}">{% endif %}
+      {%- if blocks.size > 0 -%}
+      <div class="slider-revolution{% unless settings.header_position %} revolution-default{% endunless %}" data-speed="{{ atb_delay_time }}"{% unless atb_img_fullscreen %} data-fullscreen="false" data-width="{{ atb_customwidthvalue }}" data-height="{{ atb_customheightvalue }}"{% endunless %}>
+        <div class="tp-banner-container">
+          <div class="tp-banner revolution" style="display: none;">
+            <ul>
+              {%- for block0 in blocks -%}
+{%- if block_show_prem_btn_2[forloop.index0] == blank -%}
+{%- assign my_checkbox10 = false -%}
+{%- else -%}
+{%- assign my_checkbox10 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn_1[forloop.index0] == blank -%}
+{%- assign my_checkbox9 = false -%}
+{%- else -%}
+{%- assign my_checkbox9 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn[forloop.index0] == blank -%}
+{%- assign my_checkbox8 = false -%}
+{%- else -%}
+{%- assign my_checkbox8 = true -%}
+{%- endif -%}
+{%- if block_show_custom_html[forloop.index0] == blank -%}
+{%- assign my_checkbox7 = false -%}
+{%- else -%}
+{%- assign my_checkbox7 = true -%}
+{%- endif -%}
+{%- if block_show_icon[forloop.index0] == blank -%}
+{%- assign my_checkbox6 = false -%}
+{%- else -%}
+{%- assign my_checkbox6 = true -%}
+{%- endif -%}
+{%- if block_text_to_left[forloop.index0] == blank -%}
+{%- assign my_checkbox5 = false -%}
+{%- else -%}
+{%- assign my_checkbox5 = true -%}
+{%- endif -%}
+{%- if block_use_link[forloop.index0] == blank -%}
+{%- assign my_checkbox4 = false -%}
+{%- else -%}
+{%- assign my_checkbox4 = true -%}
+{%- endif -%}
+{%- if block_button2[forloop.index0] == blank -%}
+{%- assign my_checkbox3 = false -%}
+{%- else -%}
+{%- assign my_checkbox3 = true -%}
+{%- endif -%}
+{%- if block_textbackground_s[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_muted_video[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_loopvideo[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_range0 = block_textbackground_r[forloop.index0] | plus: 0 -%}
+{%- assign my_image_key1 = block_icon_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image1 = images[my_image_key1] -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+              {%- if block_type[forloop.index0] == 'banner_item' -%}{%- continue -%}{%- endif -%}
+              {%- if my_image0 != blank -%}{%- assign img_url = block_image[forloop.index0] | img_url: 'x1024' -%}
+              {%- else -%}{%- assign img_url = 'template_slider.png' | asset_url -%}
+              {%- endif -%}
+              <li data-slideitem="{{ section_id }}{{ forloop.index }}" data-thumb="{{ img_url }}" data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide"{% if block_show_item_button[forloop.index0] != 'yes' and block_show_item_button[forloop.index0] != 'aslink' and block_banner_link[forloop.index0] != blank %} data-link="{{ block_banner_link[forloop.index0] }}"{% endif %}>
+                {%- if block_show_customhtml[forloop.index0] == 'no' -%}
+
+                {%- if block_show_video[forloop.index0] == "yes" -%}
+                <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                     data-x="0"
+                     data-y="0"
+                     data-speed="600"
+                     data-start="0"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="1500"
+                     data-endeasing="Power4.easeIn"
+                     data-autoplay="true"
+                     data-autoplayonlyfirsttime="false"
+                     data-nextslideatend="true"
+                     data-forceCover="1"
+                     data-dottedoverlay="twoxtwo"
+                     data-aspectratio="16:9">
+                  <video class="video-js vjs-default-skin" preload="none" poster='{{ img_url }}' 
+                         {% if my_checkbox1 %}muted=""{% endif %}
+                         playsinline=""
+                         autoplay=""
+                         data-setup="{}"{% if my_checkbox0 %} loop=""{% endif %}>
+                    <source src='{{ block_video_url[forloop.index0] | replace: "http:", "" | replace: "https:", ""  }}' />
+                  </video>
+                </div>
+                <div class="tp-caption  tp-fade"
+                     data-x="right"
+                     data-y="bottom"
+                     data-voffset="-60"
+                     data-hoffset="-90"
+                     data-speed="600"
+                     data-start="900"
+                     data-easing="Power4.easeOut"
+                     data-endeasing="Power4.easeIn">
+                  <div class="video-play" preload="none">
+                    <a class="icon-f-29 btn-play" href="#"></a>
+                    <a class="icon-f-28 btn-pause" href="#"></a>
+                  </div>
+                </div>
+                {%- else -%}
+                <img src="{{ 'dummy.png' | asset_url }}" data-lazyload="{{ img_url }}" alt="{{ my_image0.alt }}" data-bgposition="{{ block_position[forloop.index0] }} {{ block_imgpositionvertical[forloop.index0] }}" data-bgfit="cover" data-bgrepeat="no-repeat" >
+                {%- endif -%}
+
+                {%- capture infoposition -%}{%- if block_infoposition[forloop.index0] == "value" -%}{{ block_info_point[forloop.index0] }}{%- else -%}{{ block_infoposition[forloop.index0] }}{%- endif -%}{%- endcapture -%}
+                {%- capture textaligment -%}{{ block_textaligment[forloop.index0] }}{%- endcapture -%}
+                {%- capture ani -%}{%- if block_infoposition[forloop.index0] == "value" -%}lfl{%- elsif block_infoposition[forloop.index0] == "right" -%}lfr{%- else -%}lfb{%- endif -%}{%- endcapture -%}
+                {%- capture offset -%}{%- if block_infoposition[forloop.index0] == "value" -%}0{%- elsif block_infoposition[forloop.index0] == "right" -%}-{{ block_info_point[forloop.index0] }}{%- else -%}0{%- endif -%}{%- endcapture -%}
+                {%- if block_show_infoblock[forloop.index0] == 'yes' -%}
+                <div class="tp-caption tp-caption1 {{ ani }} stb text-{{ textaligment }} textsdescription{% if my_checkbox2 %} usebackground{% endif %}"
+                     {% if my_checkbox2 %}
+                     style="background-color: {% assign _a = block_textbackground_a[forloop.index0] | divided_by: 100.00 %}{{ block_textbackground_c[forloop.index0] | color_modify: 'alpha', _a }}; border-radius: {{ my_range0 }}px;"
+                     {% endif %}
+                     data-x="{{ infoposition }}"
+                     data-y="{{ block_infoposition_v[forloop.index0] }}"
+                     data-hoffset="{{ offset }}"
+                     data-voffset="{{ block_info_point_v[forloop.index0] }}"
+                     data-speed="600"
+                     data-start="900"
+                     data-easing="Power4.easeOut"
+                     data-endeasing="Power4.easeIn">
+                  {% if block_text1[forloop.index0] != '' %}<div class="tp-caption1-wd-1" style="color:{{ block_color_text1[forloop.index0] }}">{{ block_text1[forloop.index0] }}</div>{% endif %}
+                  {% if block_text2[forloop.index0] != '' %}<div class="tp-caption1-wd-2" style="color:{{ block_color_text2[forloop.index0] }}">{{ block_text2[forloop.index0] }}</div>{% endif %}
+                  {% if block_text3[forloop.index0] != '' %}<div class="tp-caption1-wd-3" style="color:{{ block_color_text3[forloop.index0] }}">{{ block_text3[forloop.index0] }}</div>{% endif %}
+                  {% if block_show_item_button[forloop.index0] == 'yes' or block_show_item_button[forloop.index0] == 'aslink' %}
+                  {%- assign radius = '-moz-border-radius:' | append: atb_bg_round_r | append: 'px;' | append: '-webkit-border-radius:' | append: atb_bg_round_r | append: 'px;' | append: 'border-radius:' | append: atb_bg_round_r | append: 'px;' | append: '-khtml-border-radius:' | append: atb_bg_round_r | append: 'px;' %}
+                  <div class="tp-caption1-wd-4">
+                    {% if block_show_item_button[forloop.index0] == 'aslink' %}<a href="{{ block_banner_link[forloop.index0] }}" class="hover-underline fnt-we-500">{{ block_button_title[forloop.index0] }}</a>
+                    {% else %}<a href="{{ block_banner_link[forloop.index0] }}" class="btn btn-xl fnt-we-500" style="color:{{ block_color_textbase[forloop.index0] }}; background:{{ block_color_bgbase[forloop.index0] }}; {{ radius }}" data-c="{{ block_color_textbase[forloop.index0] }}" data-ac="{{ block_color_textactive[forloop.index0] }}" data-bgc="{{ block_color_bgbase[forloop.index0] }}" data-abgc="{{ block_color_bgactive[forloop.index0] }}" data-hovercolors>{{ block_button_title[forloop.index0] }}</a>
+                    {% endif %}
+                    {% if my_checkbox3 %}<a href="{{ block_banner_link2[forloop.index0] }}" class="btn btn-xl fnt-we-500" style="color:{{ block_color_textbase2[forloop.index0] }}; background:{{ block_color_bgbase2[forloop.index0] }}; {{ radius }}" data-c="{{ block_color_textbase2[forloop.index0] }}" data-ac="{{ block_color_textactive2[forloop.index0] }}" data-bgc="{{ block_color_bgbase2[forloop.index0] }}" data-abgc="{{ block_color_bgactive2[forloop.index0] }}" data-hovercolors>{{ block_button_title2[forloop.index0] }}</a>{% endif %}
+                  </div>
+                  {%- endif -%}
+                </div>
+                {%- endif -%}
+
+                {%- else -%}{{ block_code[forloop.index0] }}
+                {%- endif -%}
+              </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {%- else -%}
+      <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+      {%- endif -%}
+      {% if atb_usebanner != 'none' %}</div>{% endif %}
+      
+      {%- if blocks.size > 0 and atb_usebanner contains 'banner'-%}
+      {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- if block_show_prem_btn_2[forloop.index0] == blank -%}
+{%- assign my_checkbox10 = false -%}
+{%- else -%}
+{%- assign my_checkbox10 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn_1[forloop.index0] == blank -%}
+{%- assign my_checkbox9 = false -%}
+{%- else -%}
+{%- assign my_checkbox9 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn[forloop.index0] == blank -%}
+{%- assign my_checkbox8 = false -%}
+{%- else -%}
+{%- assign my_checkbox8 = true -%}
+{%- endif -%}
+{%- if block_show_custom_html[forloop.index0] == blank -%}
+{%- assign my_checkbox7 = false -%}
+{%- else -%}
+{%- assign my_checkbox7 = true -%}
+{%- endif -%}
+{%- if block_show_icon[forloop.index0] == blank -%}
+{%- assign my_checkbox6 = false -%}
+{%- else -%}
+{%- assign my_checkbox6 = true -%}
+{%- endif -%}
+{%- if block_text_to_left[forloop.index0] == blank -%}
+{%- assign my_checkbox5 = false -%}
+{%- else -%}
+{%- assign my_checkbox5 = true -%}
+{%- endif -%}
+{%- if block_use_link[forloop.index0] == blank -%}
+{%- assign my_checkbox4 = false -%}
+{%- else -%}
+{%- assign my_checkbox4 = true -%}
+{%- endif -%}
+{%- if block_button2[forloop.index0] == blank -%}
+{%- assign my_checkbox3 = false -%}
+{%- else -%}
+{%- assign my_checkbox3 = true -%}
+{%- endif -%}
+{%- if block_textbackground_s[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_muted_video[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_loopvideo[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_range0 = block_textbackground_r[forloop.index0] | plus: 0 -%}
+{%- assign my_image_key1 = block_icon_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image1 = images[my_image_key1] -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+      {%- if block_type[forloop.index0] == 'slider_list' -%}{%- continue -%}{%- endif -%}
+      {%- assign item = section.settings -%}
+      <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+        {%- include 'section-banner-item' -%}
+      </div>
+      {%- endfor -%}
+      {%- endif -%}
+	</div>
+  </div>
+</div>
+
+{%- if blocks.size > 0 -%}
+{%- capture style -%}
+{%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+{%- if block_show_prem_btn_2[forloop.index0] == blank -%}
+{%- assign my_checkbox10 = false -%}
+{%- else -%}
+{%- assign my_checkbox10 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn_1[forloop.index0] == blank -%}
+{%- assign my_checkbox9 = false -%}
+{%- else -%}
+{%- assign my_checkbox9 = true -%}
+{%- endif -%}
+{%- if block_show_prem_btn[forloop.index0] == blank -%}
+{%- assign my_checkbox8 = false -%}
+{%- else -%}
+{%- assign my_checkbox8 = true -%}
+{%- endif -%}
+{%- if block_show_custom_html[forloop.index0] == blank -%}
+{%- assign my_checkbox7 = false -%}
+{%- else -%}
+{%- assign my_checkbox7 = true -%}
+{%- endif -%}
+{%- if block_show_icon[forloop.index0] == blank -%}
+{%- assign my_checkbox6 = false -%}
+{%- else -%}
+{%- assign my_checkbox6 = true -%}
+{%- endif -%}
+{%- if block_text_to_left[forloop.index0] == blank -%}
+{%- assign my_checkbox5 = false -%}
+{%- else -%}
+{%- assign my_checkbox5 = true -%}
+{%- endif -%}
+{%- if block_use_link[forloop.index0] == blank -%}
+{%- assign my_checkbox4 = false -%}
+{%- else -%}
+{%- assign my_checkbox4 = true -%}
+{%- endif -%}
+{%- if block_button2[forloop.index0] == blank -%}
+{%- assign my_checkbox3 = false -%}
+{%- else -%}
+{%- assign my_checkbox3 = true -%}
+{%- endif -%}
+{%- if block_textbackground_s[forloop.index0] == blank -%}
+{%- assign my_checkbox2 = false -%}
+{%- else -%}
+{%- assign my_checkbox2 = true -%}
+{%- endif -%}
+{%- if block_muted_video[forloop.index0] == blank -%}
+{%- assign my_checkbox1 = false -%}
+{%- else -%}
+{%- assign my_checkbox1 = true -%}
+{%- endif -%}
+{%- if block_loopvideo[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_range0 = block_textbackground_r[forloop.index0] | plus: 0 -%}
+{%- assign my_image_key1 = block_icon_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image1 = images[my_image_key1] -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+{%- if block_type[forloop.index0] != 'banner_item' and block_show_item_button[forloop.index0] != 'aslink' and block_show_item_button[forloop.index0] == 'yes' -%}
+{%- if b_i.btn_custom_styles != '' -%}
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .btn{
+{{ b_i.btn_custom_styles }}
+}
+{%- endif -%}
+{%- if b_i.btn_custom_styles_hover != '' -%}
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .btn:hover{
+{{ b_i.btn_custom_styles_hover }}
+}
+{%- endif -%}
+{%- endif -%}
+
+{%- if block_type[forloop.index0] == 'banner_item' or block_show_item_button[forloop.index0] != 'aslink' -%}{%- continue -%}{%- endif -%}
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .hover-underline{
+font-size: {{ block_button_link_size[forloop.index0] }}px;
+line-height: {{ block_button_link_size[forloop.index0] }}px;
+color: {{ block_color_textbase[forloop.index0] }};
+}
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .hover-underline:hover{
+color: {{ block_color_textactive[forloop.index0] }};
+}
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .hover-underline:before{
+background: {{ block_color_textactive[forloop.index0] }};
+}
+@media (min-width: 1230px){
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .tp-caption1-wd-4 {
+margin-top: {{ block_button_link_top[forloop.index0] }}px;
+}
+}
+@media (min-width: 1025px){
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .tp-caption1-wd-4 {
+margin-top: {{ block_button_link_top[forloop.index0] }}px;
+}
+}
+@media (max-width: 1024px){
+[data-slideitem="{{ section_id }}{{ forloop.index }}"] .tp-caption1-wd-4 {
+margin-top: 20px;
+}
+}
+{%- endfor -%}
+{%- endcapture -%}
+{%- endif -%}
+
+{%- if style != blank -%}
+<style>
+{{ style }}
+</style>
+{%- endif -%}
+
+
+</section>

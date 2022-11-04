@@ -1,0 +1,455 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Testimonials",
+  "class": "index-section",
+  "id": "index-section-testimonials",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_top_offset",
+      "label": "Top Offset",
+      "default": "normal",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        }
+      ],
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_text1",
+      "label": "Title",
+      "default": "WHAT THEY’RE SAYING",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_module_autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_delay_time",
+      "label": "Change slides every",
+      "options": [
+        {
+          "value": "5000",
+          "label": "5 seconds"
+        },
+        {
+          "value": "6000",
+          "label": "6 seconds"
+        },
+        {
+          "value": "7000",
+          "label": "7 seconds"
+        },
+        {
+          "value": "8000",
+          "label": "8 seconds"
+        },
+        {
+          "value": "9000",
+          "label": "9 seconds"
+        },
+        {
+          "value": "10000",
+          "label": "10 seconds"
+        }
+      ],
+      "default": "7000",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_titleco",
+      "label": "Title color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_descco",
+      "label": "Description color",
+      "default": "#777777",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_authco",
+      "label": "Author color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_hobbyco",
+      "label": "Hobby color",
+      "default": "#999999",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_changebntcolor",
+      "label": "Change buttons settings",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgbaseco",
+      "label": "Background base color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_arrbaseco",
+      "label": "Arrow base color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgactiveco",
+      "label": "Background active color",
+      "default": "#191919",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_arractiveco",
+      "label": "Arrow active color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_btnsposition",
+      "label": "Buttons vertical aligment. In percent",
+      "default": "50",
+      "info": "Range = 0 - 100"
+    },
+    {
+      "type": "header",
+      "content": "Background color",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgcolor",
+      "label": "Use background color",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_boxedbg",
+      "label": "Boxed background",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_mobpad",
+      "label": "Mobile bottom padding",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgco",
+      "label": "Background color",
+      "default": "#ffffff",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgimage",
+      "label": "Use background image",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": "Recommended image size 1920x750px"
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgminheight",
+      "label": "Use background minimal height",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_bgminheight",
+      "label": "Background minimal height in px. Desktop",
+      "default": "700",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_bgminheight_m",
+      "label": "Background minimal height in px. Mobile",
+      "default": "300",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Review"
+    },
+    {
+      "type": "text",
+      "id": "block_link",
+      "label": "Link",
+      "repeatable": "Review",
+      "info": ""
+    },
+    {
+      "type": "textarea",
+      "id": "block_text2",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+      "info": "If you want to delete the text from the screen you need to clear the field",
+      "repeatable": "Review"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text3",
+      "label": "Author",
+      "default": "ADRIAN PARKER",
+      "info": "If you want to delete the text from the screen you need to clear the field",
+      "repeatable": "Review"
+    },
+    {
+      "type": "textarea",
+      "id": "block_text4",
+      "label": "Hobby",
+      "default": "Developer",
+      "info": "If you want to delete the text from the screen you need to clear the field. Field does not work with the slider mode",
+      "repeatable": "Review"
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_top_offset' -%}
+{%- assign atb_top_offset = val -%}
+{%- include 'atb-render' field:'atb_text1' -%}
+{%- assign atb_text1 = val -%}
+{%- include 'atb-render' field:'atb_module_autoplay' -%}
+{%- assign atb_module_autoplay = val -%}
+{%- include 'atb-render' field:'atb_delay_time' -%}
+{%- assign atb_delay_time = val -%}
+{%- include 'atb-render' field:'atb_titleco' -%}
+{%- assign atb_titleco = val -%}
+{%- include 'atb-render' field:'atb_descco' -%}
+{%- assign atb_descco = val -%}
+{%- include 'atb-render' field:'atb_authco' -%}
+{%- assign atb_authco = val -%}
+{%- include 'atb-render' field:'atb_hobbyco' -%}
+{%- assign atb_hobbyco = val -%}
+{%- include 'atb-render' field:'atb_changebntcolor' -%}
+{%- assign atb_changebntcolor = val -%}
+{%- include 'atb-render' field:'atb_bgbaseco' -%}
+{%- assign atb_bgbaseco = val -%}
+{%- include 'atb-render' field:'atb_arrbaseco' -%}
+{%- assign atb_arrbaseco = val -%}
+{%- include 'atb-render' field:'atb_bgactiveco' -%}
+{%- assign atb_bgactiveco = val -%}
+{%- include 'atb-render' field:'atb_arractiveco' -%}
+{%- assign atb_arractiveco = val -%}
+{%- include 'atb-render' field:'atb_btnsposition' -%}
+{%- assign atb_btnsposition = val -%}
+{%- include 'atb-render' field:'atb_usebgcolor' -%}
+{%- assign atb_usebgcolor = val -%}
+{%- include 'atb-render' field:'atb_boxedbg' -%}
+{%- assign atb_boxedbg = val -%}
+{%- include 'atb-render' field:'atb_mobpad' -%}
+{%- assign atb_mobpad = val -%}
+{%- include 'atb-render' field:'atb_bgco' -%}
+{%- assign atb_bgco = val -%}
+{%- include 'atb-render' field:'atb_usebgimage' -%}
+{%- assign atb_usebgimage = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_usebgminheight' -%}
+{%- assign atb_usebgminheight = val -%}
+{%- include 'atb-render' field:'atb_bgminheight' -%}
+{%- assign atb_bgminheight = val -%}
+{%- include 'atb-render' field:'atb_bgminheight_m' -%}
+{%- assign atb_bgminheight_m = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_link' -%}
+{%- assign block_link = val -%}
+{%- include 'atb-render' field:'block_text2' -%}
+{%- assign block_text2 = val -%}
+{%- include 'atb-render' field:'block_text3' -%}
+{%- assign block_text3 = val -%}
+{%- include 'atb-render' field:'block_text4' -%}
+{%- assign block_text4 = val -%}
+{%- if atb_module_autoplay == blank -%}
+{%- assign atb_module_autoplay = false -%}
+{%- else -%}
+{%- assign atb_module_autoplay = true -%}
+{%- endif -%}
+{%- if atb_changebntcolor == blank -%}
+{%- assign atb_changebntcolor = false -%}
+{%- else -%}
+{%- assign atb_changebntcolor = true -%}
+{%- endif -%}
+{%- if atb_usebgcolor == blank -%}
+{%- assign atb_usebgcolor = false -%}
+{%- else -%}
+{%- assign atb_usebgcolor = true -%}
+{%- endif -%}
+{%- if atb_boxedbg == blank -%}
+{%- assign atb_boxedbg = false -%}
+{%- else -%}
+{%- assign atb_boxedbg = true -%}
+{%- endif -%}
+{%- if atb_mobpad == blank -%}
+{%- assign atb_mobpad = false -%}
+{%- else -%}
+{%- assign atb_mobpad = true -%}
+{%- endif -%}
+{%- if atb_usebgimage == blank -%}
+{%- assign atb_usebgimage = false -%}
+{%- else -%}
+{%- assign atb_usebgimage = true -%}
+{%- endif -%}
+{%- if atb_usebgminheight == blank -%}
+{%- assign atb_usebgminheight = false -%}
+{%- else -%}
+{%- assign atb_usebgminheight = true -%}
+{%- endif -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{% assign item = section.settings %}
+
+{%- capture bgco =  -%}
+{% if atb_usebgcolor %}
+style="background: {{ atb_bgco }};
+{% if atb_usebgimage %}
+background-image: url('{{ atb_image | img_url: '1980x' }}');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+{% endif %}
+"{% endif %}
+{%- endcapture -%}
+
+{% if atb_usebgcolor and atb_usebgminheight %}
+<style>
+  .testimonials{{ section_id }}{
+    display: flex;
+    align-items: center;
+  }
+  @media (min-width: 769px){
+    .testimonials{{ section_id }}{
+      min-height: {{ atb_bgminheight }}px;
+    }
+  }
+  @media (max-width: 768px){
+    .testimonials{{ section_id }}{
+      min-height: {{ atb_bgminheight_m }}px;
+    }
+  }
+  @media (max-width: 1024px){
+    .testimonials{{ section_id }} .testimonials-mob-pad {
+      margin-bottom: 0;
+    }
+  }
+</style>
+{% endif %}
+
+<div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}tt-offset-small {% endif %}container-indent testimonials{{ section_id }}"{% if atb_boxedbg == false %} {{ bgco }}{% endif %}>
+  <div class="container{% if atb_usebgcolor and atb_boxedbg == false %} testimonials-bg-pad{% if atb_mobpad %} testimonials-mob-pad{% endif %}{% endif %}" data-sectionname="index_testimonials">
+    {% if atb_boxedbg %}<div class="col-12{% if atb_usebgcolor and atb_boxedbg %} testimonials-bg-pad{% if atb_mobpad %} testimonials-mob-pad{% endif %}{% endif %}" {{ bgco }}>{% endif %}
+    {%- if atb_text1 != "" -%}
+    <div class="tt-block-title">
+      <h2 class="tt-title" style="color: {{ atb_titleco }};">{{ atb_text1 }}</h2>
+    </div>
+    {%- endif -%}
+    {%- if blocks.size > 0 -%}
+    <div class="tt-slider-fullwidth arrow-location-center-02 slick-animated-show-js" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": {{ item.module_autoplay }}, "autoplaySpeed": {{ item.delay_time }}}'>
+      {%- for block0 in blocks -%}{%- assign b_i = block_-[forloop.index0]%}
+      <div class="item" {{ block.shopify_attributes }}>
+        <a href="{{ block_link[forloop.index0] }}" class="tt-content-info">
+          
+          {% unless b_i.text2 == '' %}<p style="color: {{ atb_descco }};">{{ b_i.text2 }}</p>{% endunless %}
+          {% if b_i.text3 != '' or b_i.text4 != '' %}
+          <div class="tt-subscription">
+            {% unless b_i.text3 == '' %}<div class="tt-text-lage" style="color: {{ atb_authco }};">{{ b_i.text3 }}</div>{% endunless %}
+            {% unless b_i.text4 == '' %}<div class="tt-text-small" style="color: {{ atb_hobbyco }};">{{ b_i.text4 }}</div>{% endunless %}
+          </div>
+          {%- endif -%}
+        </a>
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- else -%}
+    <span style="display: flex; justify-content: center;">This section doesn’t currently include any content. Add content to this section using the sidebar.</span>
+    {%- endif -%}
+    {% if atb_boxedbg %}</div>{% endif %}
+  </div>
+  {% if atb_changebntcolor %}
+  <style>
+    .testimonials{{ section_id }} button{
+      background: {{ atb_bgbaseco }} !important;
+      color: {{ atb_arrbaseco }} !important;
+    }
+    .testimonials{{ section_id }} button:hover{
+      background: {{ atb_bgactiveco }} !important;
+      color: {{ atb_arractiveco }} !important;
+    }
+    .arrow-location-center-02 .slick-arrow, .arrow-location-center-02 .slick-arrow:active {
+      top: {{ atb_btnsposition }}% !important;
+    }
+  </style>
+  {% endif %}
+</div>
+
+
+</section>

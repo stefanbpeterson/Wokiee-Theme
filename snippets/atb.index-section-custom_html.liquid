@@ -1,0 +1,130 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Custom Html",
+  "class": "index-section",
+  "id": "index-section-custom_html",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_topoffset",
+      "label": "Top Offset",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth",
+      "label": "Fullwidth Container",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_fullwidth2",
+      "label": "Fullwidth without container",
+      "default": false,
+      "info": "Work with option \"Fullwidth Container\""
+    },
+    {
+      "type": "textarea",
+      "id": "atb_data",
+      "label": "Content",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Background color",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgcolor",
+      "label": "Use background color",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_usebgcolorfullwidth",
+      "label": "Fullwidth background color",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_bgco",
+      "label": "Background color",
+      "default": "#ffffff",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_topoffset' -%}
+{%- assign atb_topoffset = val -%}
+{%- include 'atb-render' field:'atb_fullwidth' -%}
+{%- assign atb_fullwidth = val -%}
+{%- include 'atb-render' field:'atb_fullwidth2' -%}
+{%- assign atb_fullwidth2 = val -%}
+{%- include 'atb-render' field:'atb_data' -%}
+{%- assign atb_data = val -%}
+{%- include 'atb-render' field:'atb_usebgcolor' -%}
+{%- assign atb_usebgcolor = val -%}
+{%- include 'atb-render' field:'atb_usebgcolorfullwidth' -%}
+{%- assign atb_usebgcolorfullwidth = val -%}
+{%- include 'atb-render' field:'atb_bgco' -%}
+{%- assign atb_bgco = val -%}
+{%- if atb_topoffset == blank -%}
+{%- assign atb_topoffset = false -%}
+{%- else -%}
+{%- assign atb_topoffset = true -%}
+{%- endif -%}
+{%- if atb_fullwidth == blank -%}
+{%- assign atb_fullwidth = false -%}
+{%- else -%}
+{%- assign atb_fullwidth = true -%}
+{%- endif -%}
+{%- if atb_fullwidth2 == blank -%}
+{%- assign atb_fullwidth2 = false -%}
+{%- else -%}
+{%- assign atb_fullwidth2 = true -%}
+{%- endif -%}
+{%- if atb_usebgcolor == blank -%}
+{%- assign atb_usebgcolor = false -%}
+{%- else -%}
+{%- assign atb_usebgcolor = true -%}
+{%- endif -%}
+{%- if atb_usebgcolorfullwidth == blank -%}
+{%- assign atb_usebgcolorfullwidth = false -%}
+{%- else -%}
+{%- assign atb_usebgcolorfullwidth = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section index-section">
+{%- assign item = section.settings -%}
+<div class="container-indent{% unless item.topoffset %} nomargin{% endunless %}"{% if item.usebgcolor and item.usebgcolorfullwidth %} style="background: {{ item.bgco }}"{% endif %}>
+  <div{% unless item.fullwidth2 %} class="container{% if item.fullwidth %}-fluid{% endif %}"{% endunless %}{% if item.usebgcolor and item.usebgcolorfullwidth == false %} style="background: {{ item.bgco }}"{% endif %}>
+    {%- if item.data contains '[images]' -%}{% include 'atb-portfolio-widget'  value: item.data  %}
+    {%- else -%}{{ item.data }}
+    {%- endif -%}
+  </div>
+</div>
+
+</section>
